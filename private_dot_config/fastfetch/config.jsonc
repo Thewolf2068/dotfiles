@@ -95,12 +95,6 @@
             "keyColor": "blue"
         },
         {
-            "type": "gpu",
-            "key": "└ └󰍛",
-            "format": "{3}",
-            "keyColor": "blue"
-        },
-        {
             "type": "custom",
             "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
