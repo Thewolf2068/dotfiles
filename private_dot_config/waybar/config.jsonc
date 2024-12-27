@@ -22,6 +22,7 @@
             "default": "🎜"
         },
         "escape": true,
+        "on-click": "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
         //"exec": "$HOME/.config/waybar/mediaplayer.py > /dev/null" // Script in resources folder
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
@@ -67,10 +68,9 @@
         "on-click-right": "pactl -- set-sink-volume 0 100%"
     },
 
-
-
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}",
-        "on-click": " "
+        "on-click": " ",
+        "tooltip": false
     }
 }
