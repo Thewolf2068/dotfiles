@@ -4,6 +4,7 @@ bitwarden
 btop
 btrfs-progs
 chezmoi
+cmatrix
 code
 discord
 dolphin
