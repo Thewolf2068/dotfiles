@@ -1,0 +1,76 @@
+{
+    "height": 30,
+    "spacing": 4,
+    "margin-top": 5,
+    "margin-left":5,
+    "margin-right":5,
+    "margin-bottom":5,
+
+    "layer": "top",
+    "modules-left": ["custom/arch", "hyprland/workspaces",],
+    "modules-center": ["custom/media"],
+    "modules-right": ["tray", "pulseaudio", "clock", "custom/power"],
+
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        //"max-length": 50,
+        "format-icons": {
+            "spotify": "",
+            "vlc": "󰕼",
+            "mpv": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        //"exec": "$HOME/.config/waybar/mediaplayer.py > /dev/null" // Script in resources folder
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "<span color='#ca9ee6'></span>",
+            "default": "<span color='#eebebe'></span>"
+        },
+        "persistent-workspaces": {
+                "*": 10
+        }
+    },
+
+
+    "custom/power": {
+        "format":"<span color='#179299'>⏻</span>",
+        "on-click": "wlogout -b 4",
+        "tooltip": false
+    },
+    "custom/arch": {
+        "format": "<span color='#179299'>󰣇</span>",
+        "on-click": "$HOME/.config/waybar/scripts/next_wallpaper.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/prev_wallpaper.sh",
+        "tooltip-format": "btw"
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 7,
+        "show-passive-items": true
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl -- set-sink-volume 0 100%"
+    },
+
+
+
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "on-click": " "
+    }
+}
