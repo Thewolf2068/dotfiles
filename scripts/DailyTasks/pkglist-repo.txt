@@ -68,7 +68,6 @@ swww
 sxiv
 thunar
 thunderbird
-tmux
 trash-cli
 ttf-fira-code
 ttf-firacode-nerd
