@@ -45,7 +45,7 @@
         "tooltip": false
     },
     "custom/arch": {
-        "format": "<span color='#179299'>󰣇</span>",
+        "format": "<span size='large' color='#179299'>󰣇</span>",
         "on-click": "$HOME/.config/waybar/scripts/next_wallpaper.sh",
         "on-click-right": "$HOME/.config/waybar/scripts/prev_wallpaper.sh",
         "tooltip-format": "btw"
