@@ -1,8 +1,8 @@
 #!/bin/bash
 export SWWW_TRANSITION_POS=20,1060
 export SWWW_TRANSITION=grow
-
-
+export SWWW_TRANSITION_FPS=60
+export SWWW_TRANSITION_DURATION=2
 # Define the wallpapers directory
 WALLPAPER_DIR="$HOME/.config/waybar/scripts/Wallpapers"
 
