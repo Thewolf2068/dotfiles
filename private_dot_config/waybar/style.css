@@ -303,6 +303,7 @@ IMPORTANT STUFF
 
 #custom-power {
     margin-right: 10px;
+    margin-bottom: 1px;
 }
 #custom-arch {
     margin-left:10px;
@@ -315,6 +316,9 @@ IMPORTANT STUFF
 
 #clock {
     color: alpha(@pink, 1);
+    font-weight: bold;
+    font-size: 15;
+    margin-top: 1px;
 }
 
 #tray {
