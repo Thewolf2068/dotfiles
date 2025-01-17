@@ -117,3 +117,4 @@ alias ff="fastfetch"
 
 #fastfetch
 export EDITOR="code --wait"
+export PATH=$PATH:$HOME/.local/bin
