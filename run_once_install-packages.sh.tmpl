@@ -1,3 +1,4 @@
 #!/bin/sh
 # sudo pacman -S ripgrep
-cat ./packages/pkglist-aur.txt
+yay -S --needed - < $(cat ./packages/pkglist-aur.txt)
+sudo pacman -S --needed - < ./packages/pkglist-pacman.txt
