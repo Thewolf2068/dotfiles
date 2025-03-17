@@ -16,4 +16,4 @@ configuration{
 
 //@theme "catppuccin-mocha"
 
-@theme "/home/malenia/.config/rofi/themes/catppuccin-frappe.rasi"
+@theme ".config/rofi/themes/catppuccin-frappe.rasi"
