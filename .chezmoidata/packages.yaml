@@ -13,7 +13,7 @@ packages:
       - cups
       - easyeffects
       - efibootmgr
-      - exa
+      - eza
       - fastfetch
       - git
       - gnome-calendar
