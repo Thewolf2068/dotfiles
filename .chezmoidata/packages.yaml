@@ -98,9 +98,6 @@ packages:
       - vulkan-radeon
       - vulkan-tools
       - waybar
-      - wine-gecko
-      - wine-mono
-      - winetricks
       - wmctrl
       - wqy-zenhei
       - xdg-desktop-portal-gtk
