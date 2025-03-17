@@ -1,7 +1,5 @@
 eval "$(starship init zsh)"
 
-# Created by newuser for 5.9
-
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='❯ '
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -21,7 +19,7 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt SHARE_HISTORY             # Share history between all sessions.
 # END HISTORY
 
-
+# Mark stuff when tabbing through selection
 autoload -Uz compinit
 compinit
 
@@ -29,3 +27,10 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # Use LS_COLORS for color styling
 export ZLS_COLORS="hl=48;5;27"  # Highlight current selection
 
+export EDITOR="code --wait"
+
+#Alias
+alias clear="clear && krabby random --no-title"
+
+#Run at init
+fastfetch
