@@ -31,6 +31,6 @@ export EDITOR="code --wait"
 
 #Alias
 alias clear="clear && krabby random --no-title"
-
+alias pushy="git push -u origin main"
 #Run at init
 fastfetch
