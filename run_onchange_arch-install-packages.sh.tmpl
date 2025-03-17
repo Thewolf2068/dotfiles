@@ -5,9 +5,16 @@ set -e  # Exit on error
 # Enable Multilib repository if not enabled
 if ! grep -q '^\[multilib\]' /etc/pacman.conf; then
   echo "Enabling Multilib repository..."
-  sudo sed -i '/#\[multilib\]/s/^#//' /etc/pacman.conf
-  sudo sed -i '/#Include = \/etc\/pacman.d\/mirrorlist/s/^#//' /etc/pacman.conf
-  sudo pacman -Sy  # Refresh package database
+
+  # Insert the Multilib section if it's missing
+  sudo tee -a /etc/pacman.conf > /dev/null <<EOF
+
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+EOF
+
+  # Refresh the package database after modifying pacman.conf
+  sudo pacman -Sy
 fi
 
 # Ensure base-devel is installed for AUR support
