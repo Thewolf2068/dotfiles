@@ -26,11 +26,14 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # Use LS_COLORS for color styling
 export ZLS_COLORS="hl=48;5;27"  # Highlight current selection
+bindkey '^[[Z' reverse-menu-complete
+
+
 
 export EDITOR="code --wait"
 
 #Alias
-alias clear="clear && krabby random --no-title"
+alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
 alias pushy="git push -u origin main"
 #Run at init
 fastfetch
