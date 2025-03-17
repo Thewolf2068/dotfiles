@@ -35,7 +35,6 @@ behind = '⇣${count}'
 truncation_length = 6
 style = "bold lavender"
 truncation_symbol = './'
-home_symbol = '~'
 repo_root_style = 'rosewater'
 
 [palettes.catppuccin_frappe]
