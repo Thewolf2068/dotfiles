@@ -39,4 +39,14 @@ sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman }}{{ . }} {{
 
 echo "Installing AUR packages..."
 yay -Sy --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
+
+# Install zsh-transient-prompt plugin
+ZSH_PLUGIN_DIR="/usr/share/zsh/plugins/zsh-transient-prompt"
+if [ ! -d "$ZSH_PLUGIN_DIR" ]; then
+  echo "Installing zsh-transient-prompt..."
+  sudo git clone --single-branch --branch main --depth 1 \
+    https://github.com/olets/zsh-transient-prompt "$ZSH_PLUGIN_DIR"
+else
+  echo "zsh-transient-prompt is already installed."
+fi
 {{ end -}}
