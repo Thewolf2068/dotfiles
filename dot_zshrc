@@ -35,5 +35,13 @@ export EDITOR="code --wait"
 #Alias
 alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
 alias pushy="git push -u origin main"
+
+# Changing "ls" to "exa"
+alias ls='exa --icons --color=always --group-directories-first'
+alias ll='exa -alF --icons --color=always --group-directories-first'
+alias la='exa -a --icons --color=always --group-directories-first'
+alias l='exa -F --icons --color=always --group-directories-first'
+alias l.='exa -a | egrep "^\."'
+
 #Run at init
 fastfetch
