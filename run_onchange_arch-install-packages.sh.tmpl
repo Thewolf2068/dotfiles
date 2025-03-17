@@ -1,0 +1,33 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+set -e  # Exit on error
+
+# Ensure base-devel is installed (needed for building AUR packages)
+if ! pacman -Qq base-devel &>/dev/null; then
+  echo "Installing base-devel..."
+  sudo pacman -Sy --needed --noconfirm base-devel
+fi
+
+# Ensure yay is installed
+if ! command -v yay >/dev/null 2>&1; then
+  echo "yay not found, installing..."
+  if ! pacman -Qq yay &>/dev/null; then
+    sudo pacman -Sy --needed --noconfirm git go
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay
+    makepkg -si --noconfirm
+    cd - && rm -rf /tmp/yay
+  fi
+fi
+
+# Install Pacman packages
+if command -v pacman >/dev/null 2>&1; then
+  sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman }}{{ . }} {{ end }}
+fi
+
+# Install AUR packages using yay
+if command -v yay >/dev/null 2>&1; then
+  yay -Sy --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
+fi
+{{ end -}}
