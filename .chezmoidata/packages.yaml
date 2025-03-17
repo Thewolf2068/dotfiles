@@ -81,6 +81,7 @@ packages:
       - sddm
       - sl
       - slurp
+      - starship
       - steam
       - steam-native-runtime
       - swappy
@@ -109,6 +110,7 @@ packages:
       - yt-dlp
       - zram-generator
       - zsh
+      - zsh-autosuggestions
     aur:
       - catppuccin-cursors-frappe
       - catppuccin-gtk-theme-frappe
@@ -128,3 +130,4 @@ packages:
       - yay
       - yay-debug
       - zen-browser-bin
+      - zsh-fast-syntax-highlighting
