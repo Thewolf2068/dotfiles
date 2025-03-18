@@ -5,19 +5,15 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-transient-prompt/transient-prompt.plugin.zsh
 
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=50000
-# HISTORY
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-setopt SHARE_HISTORY             # Share history between all sessions.
-# END HISTORY
+# Prevent duplicates in history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate commands
+setopt HIST_IGNORE_DUPS       # Ignore duplicate commands in history
+setopt HIST_SAVE_NO_DUPS      # Don't save duplicates in history
+setopt HIST_EXPIRE_DUPS_FIRST # Remove oldest duplicates first
+
 
 # Mark stuff when tabbing through selection
 autoload -Uz compinit
@@ -29,6 +25,11 @@ export ZLS_COLORS="hl=48;5;27"  # Highlight current selection
 bindkey '^[[Z' reverse-menu-complete
 
 
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey "^[[3~" delete-char
 
 export EDITOR="code --wait"
 
