@@ -3,6 +3,7 @@ packages:
     pacman:
       - base
       - base-devel
+      - bat
       - bitwarden
       - bridge-utils
       - btop
