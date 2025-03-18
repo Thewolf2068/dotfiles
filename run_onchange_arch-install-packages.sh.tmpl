@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/bash
 set -e  # Exit on error
 
@@ -49,4 +49,8 @@ if [ ! -d "$ZSH_PLUGIN_DIR" ]; then
 else
   echo "zsh-transient-prompt is already installed."
 fi
+
+
+sudo chsh -s /usr/bin/zsh
+
 {{ end -}}
