@@ -30,6 +30,7 @@ packages:
       - hyprlock
       - imagemagick
       - intel-ucode
+      - keyd
       - kitty
       - lf
       - libreoffice-still
