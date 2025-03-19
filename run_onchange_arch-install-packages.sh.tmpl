@@ -50,7 +50,32 @@ else
   echo "zsh-transient-prompt is already installed."
 fi
 
+# Install and configure keyd if not already configured
+if ! pgrep -x "keyd" > /dev/null; then
+  echo "Checking keyd installation..."
+  if ! command -v keyd &>/dev/null; then
+    echo "Installing keyd..."
+    sudo pacman -Sy --needed --noconfirm keyd
+  fi
 
+  echo "Setting up keyd configuration..."
+  sudo mkdir -p /etc/keyd
+  if [ ! -f /etc/keyd/default.conf ]; then
+    sudo ln -s ~/.config/keyd/default.conf /etc/keyd/default.conf
+  else
+    echo "keyd configuration already exists."
+  fi
+
+  echo "Enabling and starting keyd service..."
+  sudo systemctl enable keyd --now
+else
+  echo "keyd is already running."
+fi
+
+# Change default shell to zsh
 sudo chsh -s /usr/bin/zsh
+
+# Set wallpaper using swww
+swww img ~/.config/waybar/scripts/Wallpapers/6.png
 
 {{ end -}}
