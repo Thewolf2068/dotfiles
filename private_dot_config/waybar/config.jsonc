@@ -43,7 +43,7 @@
 
 
     "custom/power": {
-        "format":"<span color='#179299'>⏻</span>",
+        "format":"<span color='#179299'>󰐥</span>",
         "on-click": "wlogout -b 4",
         "tooltip": false
     },

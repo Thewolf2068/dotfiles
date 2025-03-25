@@ -31,6 +31,13 @@ bindkey "^[[1;5D" backward-word
 
 bindkey "^[[3~" delete-char
 
+
+bindkey "^[[5~" history-search-backward  # Page Up for history search
+bindkey "^[[6~" history-search-forward   # Page Down for history search
+
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
+
+
 export EDITOR="code --wait"
 
 #Alias
@@ -42,7 +49,7 @@ alias ls='eza --icons --color=always --group-directories-first'
 alias ll='eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
-alias l.='eza -a | egrep "^\."'
+alias l='eza -a | grep -E "^\."'
 
 # Changing "cat" to "bat"
 alias cat='bat' 
