@@ -37,6 +37,7 @@ bindkey "^[[6~" history-search-forward   # Page Down for history search
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
 
+. "$HOME/.cargo/env"
 
 export EDITOR="code --wait"
 
