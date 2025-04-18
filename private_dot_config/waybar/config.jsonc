@@ -23,7 +23,7 @@
             "default": "🎜"
         },
         "escape": true,
-        "on-click": "qdbus6 org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
+        "on-click": "qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause",
         //"exec": "$HOME/.config/waybar/mediaplayer.py > /dev/null" // Script in resources folder
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
