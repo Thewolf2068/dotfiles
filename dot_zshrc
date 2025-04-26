@@ -42,8 +42,10 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
 export EDITOR="code --wait"
 
 #Alias
-alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
+#alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
+alias clear="clear && krabby random --no-title"
 alias pushy="git push -u origin main"
+alias ff="fastfetch"
 
 # Changing "ls" to "eza"
 alias ls='eza --icons --color=always --group-directories-first'
