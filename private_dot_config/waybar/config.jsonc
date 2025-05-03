@@ -8,6 +8,7 @@
     "reload_style_on_change": true,
 
     "layer": "top",
+    "output": "DP-1",
     "modules-left": ["custom/arch", "hyprland/workspaces"],
     "modules-center": ["custom/media"],
     "modules-right": ["tray", "clock", "pulseaudio", "custom/power"],
