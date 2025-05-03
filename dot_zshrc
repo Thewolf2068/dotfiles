@@ -54,6 +54,8 @@ alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
 alias l='eza -a | grep -E "^\."'
 
+alias vv='tput setab 3; printf "%*s" $( tput cols ) ""; tput setab 0; echo'
+
 # Changing "cat" to "bat"
 alias cat='bat' 
 
