@@ -61,3 +61,5 @@ alias cat='bat'
 
 #Run at init
 fastfetch
+
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
