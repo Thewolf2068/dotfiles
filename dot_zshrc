@@ -39,7 +39,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
 
 . "$HOME/.cargo/env"
 
-export EDITOR="code --wait"
+export EDITOR=nvim
 
 #Alias
 #alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
@@ -59,7 +59,11 @@ alias vv='tput setab 3; printf "%*s" $( tput cols ) ""; tput setab 0; echo'
 # Changing "cat" to "bat"
 alias cat='bat' 
 
+
 #Run at init
 fastfetch
 
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+
