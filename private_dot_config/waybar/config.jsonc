@@ -9,9 +9,9 @@
 
     "layer": "top",
     "output": "DP-1",
-    "modules-left": ["custom/arch", "hyprland/workspaces"],
-    "modules-center": ["custom/media"],
-    "modules-right": ["tray", "clock", "pulseaudio", "custom/power"],
+    "modules-left": ["custom/arch", "hyprland/workspaces", "custom/media"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "clock", "pulseaudio", "group/power"],
 
     "custom/media": {
         "format": "{icon} {text}",
@@ -29,6 +29,45 @@
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
 
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power",
+            "custom/logout",
+            "custom/reboot",
+            "custom/lock"
+        ]
+    },
+
+    "custom/logout": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "hyprctl dispactch exit"
+    },
+
+    "custom/reboot": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+
+    "custom/lock": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "hyprlock --immediate"
+    },
+
+    "custom/power": {
+        "format":"",
+        "on-click": "wlogout -b 4",
+        "tooltip": false
+    },
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
@@ -38,16 +77,22 @@
             "urgent": "<span color='#e78284'></span>"
         },
         "persistent-workspaces": {
-                "*": 10
+            "*": 10
         }
     },
 
-
-    "custom/power": {
-        "format":"<span color='#179299'>󰐥</span>",
-        "on-click": "wlogout -b 4",
-        "tooltip": false
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "rewrite": {
+            "(.*) — Zen Browser": " $1",
+            "(.*) - kitty": "> [$1]"
+        },
+        "separate-outputs": true,
+        "tooltip": true,
+        "tooltip-format": "{title}"
     },
+
+
     "custom/arch": {
         "format": "<span size='large' color='#179299'>󰣇</span>",
         "on-click": "$HOME/.config/waybar/scripts/next_wallpaper.sh",
@@ -78,5 +123,5 @@
         "tooltip-format": "{:%d/%m/%Y}",
         "on-click":"gnome-calendar"
     }
-    
+
 }
