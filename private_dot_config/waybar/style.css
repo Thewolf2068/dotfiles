@@ -1,4 +1,9 @@
 @import "frappe.css";
+
+@define-color border @sky;
+
+@define-color text @teal;
+
 * { all: initial; }
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -15,7 +20,6 @@
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
     border-radius: 10px;
 }
-*/
 
 .modules-center {
     padding:7px;
@@ -24,6 +28,7 @@
     background: alpha(@base,1);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
+
 .modules-right {
     padding:7px;
     margin: 5 7 0 0;
@@ -31,6 +36,7 @@
     background: alpha(@base,1);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
+*/
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -45,16 +51,14 @@ button:hover {
     background: inherit;
     box-shadow: inset 0 -3px alpha(@teal, 1);
 }
-
 /* you can set a style on hover for any module like this */
 
 tooltip {
     background: alpha(@base, 1);
     border: 1px solid rgba(100, 114, 125, 0.5);
-    border-radius: 8px;
-}
+    border-radius: 8px; }
 tooltip label {
-    color: alpha(@pink,1);
+    color: alpha(@text,1);
 }
 
 #workspaces button {
@@ -93,7 +97,6 @@ tooltip label {
 #pulseaudio,
 #wireplumber,
 #custom-media,
-#tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
@@ -107,13 +110,36 @@ tooltip label {
     font-size: 15;
     margin-top: -5;
     font-weight: bold;
+    margin:5 0 0 0;
+    background: alpha(@base,1);
+    border-radius:10px;
+    padding:7px;
+    color: alpha(@text, 1);
+    font-weight: bold;
+
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
+
+window#waybar.empty #window {
+    background: transparent;
+    border: none;
+}
+
+
 #workspaces {
     background-color: alpha(@base, 1);
     border-radius: 0 8px 8px 0;
 
     padding: 0 8px;
-    margin: 5 0 0 -5px
+    margin: 5 0 0 -5px;
+
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -220,10 +246,15 @@ label:focus {
 
 #custom-media {
     background-color: alpha(@base, 1);
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
     min-width: 100px;
     border-radius: 8px;
     margin: 5 0 0 0px;
+
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
 
 #temperature {
@@ -235,9 +266,17 @@ label:focus {
 }
 
 #tray {
-    color: alpha(@pink, 1);
-    -gtk-icon-theme: "Papirus";
+    -gtk-icon-theme: "Tela";
+    background-color: alpha(@base, 1);
+    color: alpha(@text, 1);
+    border-radius: 8px;
+    margin: 5 0 0 0px;
+    padding: 0 5 0 5px;
 
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
 
 #tray > .passive {
@@ -247,6 +286,17 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
+}
+
+#tray menu {
+    background-color: alpha(@base, 1);
+    border-radius: 8px;
+    padding: 5px;
+    color: alpha(@text, 1);
+    border: 2px;
+
+    border-style: solid;
+    border-color: alpha(@border, 0.3);
 }
 
 #idle_inhibitor {
@@ -332,33 +382,88 @@ label:focus {
 IMPORTANT STUFF 
  */
 
-#custom-power {
-    margin-right: 10px;
-    margin-bottom: 1px;
-    color: alpha(@pink, 1);
-}
+
+
 #custom-arch {
     background-color: alpha(@base, 1);
-    padding: 0 8px;
-    color: alpha(@pink, 0.7);
+    padding: 0 8 0 8px;
+    color: alpha(@text, 0.7);
     border-radius: 8px 0 0 8px;
-    margin: 5 0 0 10px;
+    margin: 5 -4 0 5px;
+
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+
+
+#power {
+    background-color: alpha(@base, 1);
+    margin-right: 5px;
+    color: alpha(@text, 1);
+    background-color: alpha(@base, 1);
+
+
+    margin-top: 5px;
+    border-radius: 0 8 8 0px;
+    margin-left: -6px;
+    padding-right: 5px;
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+/*
+#custom-power {
+    margin-right: 10px;
+    color: alpha(@text, 1);
+    background-color: alpha(@base, 1);
+    margin-top: 5px;
+    border-radius: 0 8 8 0px;
+    margin-left: -6px
+
+}
+
+*/
+
+#custom-logout {
+    margin-left: 10px;
 }
 
 #pulseaudio {
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
+    background-color: alpha(@base, 1);
+    margin-top: 5px;
+    border-radius: 8px 0 0 8px;
+    padding-left: 10px;
 
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
 
+
 #clock {
-    color: alpha(@pink, 1);
+    background-color: alpha(@base, 1);
+    border-radius:  8px;
+    padding: 7px;
+
+    color: alpha(@text, 1);
     font-weight: bold;
     font-size: 15;
-    margin-top: 1px;
+    margin-top: 5px;
+
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
 
 #tray {
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
     -gtk-icon-theme: "Tela";
 
 }
@@ -373,17 +478,104 @@ IMPORTANT STUFF
 }
 
 #custom-logout {
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
     margin-right: 10px;
     margin-left: 5px;
 }
 
 #custom-reboot {
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
     margin-right: 10px;
 }
 
 #custom-lock {
-    color: alpha(@pink, 1);
+    color: alpha(@text, 1);
     margin-right: 5px;
+}
+
+#pulseaudio-slider trough, #backlight-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+}
+
+#pulseaudio-slider {
+    background-color: alpha(@base, 1);
+    margin-top: 5px;
+    padding: 7px;
+    margin-right: -5px;
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: alpha(@text, 1);
+}
+
+#cava {
+    background-color: alpha(@base, 1);
+    margin: 5 0 0 0px;
+    border-radius: 8px;
+    padding: 7px;
+    color: alpha(@text, 1);
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+#custom-headsetVolume {
+    background-color: alpha(@base, 1);
+    margin: 5 0 0 0px;
+    padding: 7px;
+    border-radius: 8px;
+    color: alpha (@text, 1);
+    font-weight: bold;
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+#custom-updates {
+    background-color: alpha(@base, 1);
+    margin: 5 0 0 0px;
+    padding: 7 10 7 7px;
+    border-radius: 8px;
+
+    color: alpha(@text, 1);
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+#systemd-failed-units {
+    background-color: alpha(@base, 1);
+    padding: 7px;
+    margin: 5 0 0 0px;
+    border-radius: 8px;
+
+    color: alpha(@text, 1);
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
 }
