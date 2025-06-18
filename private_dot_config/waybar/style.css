@@ -7,7 +7,7 @@
 * { all: initial; }
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "FiraCode Nerd", sans-serif, FontAwesome;
+    font-family: "Sofia Pro", "FiraCode Nerd", sans-serif, FontAwesome;
     font-size: 13px;
 }
 
