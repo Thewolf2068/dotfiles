@@ -1,7 +1,7 @@
 * {
   all: unset;
   font-size: 14px;
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "Sofia Pro";
   transition: 200ms;
 }
 
@@ -273,6 +273,8 @@ slider {
 .widget-mpris .widget-mpris-player {
   background: #414559;
   padding: 7px;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .widget-mpris .widget-mpris-title {

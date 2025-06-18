@@ -9,7 +9,7 @@
 
     "layer": "top",
     "output": "DP-1",
-    "modules-left": ["custom/arch", "hyprland/workspaces", "custom/media", "cava"],
+    "modules-left": ["custom/arch", "hyprland/workspaces", "custom/media",],
     "modules-center": ["hyprland/window"],
     "modules-right": ["custom/headsetVolume", "tray", "custom/updates","systemd-failed-units", "clock", "group/volume", "group/power"],
 
