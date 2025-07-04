@@ -59,6 +59,8 @@ alias vv='tput setab 3; printf "%*s" $( tput cols ) ""; tput setab 0; echo'
 # Changing "cat" to "bat"
 alias cat='bat' 
 
+# Reboot directly into Windows
+alias windows='sudo efibootmgr -n 0000; reboot'
 
 #Run at init
 fastfetch

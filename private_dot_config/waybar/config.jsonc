@@ -93,7 +93,8 @@
             "custom/power",
             "custom/logout",
             "custom/reboot",
-            "custom/lock"
+            "custom/lock",
+            "custom/windows"
         ]
     },
 
@@ -118,7 +119,13 @@
     "custom/power": {
         "format":"󰤆",
         "on-click": "wlogout -b 4",
-        "tooltip": false,
+        "tooltip": false
+    },
+
+    "custom/windows": {
+        "format":"",
+        "on-click": "kitty sudo efibootmgr -n 0000; reboot",
+        "tooltip": false
     },
 
     "hyprland/workspaces": {
