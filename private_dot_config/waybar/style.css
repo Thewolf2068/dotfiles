@@ -383,7 +383,6 @@ IMPORTANT STUFF
  */
 
 
-
 #custom-arch {
     background-color: alpha(@base, 1);
     padding: 0 8 0 8px;
@@ -490,8 +489,14 @@ IMPORTANT STUFF
 
 #custom-lock {
     color: alpha(@text, 1);
+    margin-right: 10px;
+}
+
+#custom-windows {
+    color: alpha(@text, 1);
     margin-right: 5px;
 }
+
 
 #pulseaudio-slider trough, #backlight-slider trough {
     min-height: 10px;
