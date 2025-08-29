@@ -35,10 +35,25 @@ fi
 
 # Install all necessary packages before applying configs
 echo "Installing Pacman packages..."
-sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman }}{{ . }} {{ end }}
+
+# Install minimal config
+{{ if eq .device  "minimal" -}}
+sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.minimal }}{{ . }} {{ end }}
+echo "Installing AUR packages..."
+yay -Sy --needed --noconfirm {{ range .packages.arch.aur.minimal }}{{ . }} {{ end }}
+{{ end -}}
+
+# Install desktop config
+{{ if eq .device "desktop" -}}
+sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.minimal }}{{ . }} {{ end }}
+sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.desktop }}{{ . }} {{ end }}
 
 echo "Installing AUR packages..."
-yay -Sy --needed --noconfirm {{ range .packages.arch.aur }}{{ . }} {{ end }}
+
+yay -Sy --needed --noconfirm {{ range .packages.arch.aur.minimal }}{{ . }} {{ end }}
+yay -Sy --needed --noconfirm {{ range .packages.arch.aur.desktop }}{{ . }} {{ end }}
+{{ end -}}
+
 
 # Install zsh-transient-prompt plugin
 ZSH_PLUGIN_DIR="/usr/share/zsh/plugins/zsh-transient-prompt"
