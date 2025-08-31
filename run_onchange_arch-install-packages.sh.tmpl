@@ -90,7 +90,11 @@ fi
 # Change default shell to zsh
 sudo chsh -s /usr/bin/zsh
 
+
+{{ if eq .device "desktop" -}}
 # Set wallpaper using swww
 swww img ~/.config/waybar/scripts/Wallpapers/6.png
+
+{{ end -}}
 
 {{ end -}}
