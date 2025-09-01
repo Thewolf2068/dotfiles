@@ -28,7 +28,6 @@ packages:
         - mesa-utils
         - nano
         - nasm
-        - neovim
         - net-tools
         - networkmanager
         - noto-fonts
@@ -127,6 +126,7 @@ packages:
         - yay
         - yay-debug
         - zsh-fast-syntax-highlighting
+        - neovim-nightly-bin
       desktop:
         - clipse
         - discord-canary
