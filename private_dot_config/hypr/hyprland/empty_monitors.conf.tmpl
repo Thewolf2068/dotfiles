@@ -1,3 +1,9 @@
-{{- if eq .device "laptop" }}
-monitor = blablalbal
-{{- end }}
+{{- if eq .device "home-pc" }}
+monitor=DP-1,2560x1440@180.06,0x0,1.0
+monitor=HDMI-A-1,1920x1080@74.97,2560x429,1.0
+
+{{- end }} 
+
+{{- if eq .device "thinkpad" }}
+monitor = eDP-1, 1920x1200@60, 0x0, 1
+{{- end}}
