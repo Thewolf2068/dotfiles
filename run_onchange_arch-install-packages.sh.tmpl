@@ -37,14 +37,14 @@ fi
 echo "Installing Pacman packages..."
 
 # Install minimal config
-{{ if eq .device  "minimal" -}}
+{{ if eq .type  "minimal" -}}
 sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.minimal }}{{ . }} {{ end }}
 echo "Installing AUR packages..."
 yay -Sy --needed --noconfirm {{ range .packages.arch.aur.minimal }}{{ . }} {{ end }}
 {{ end -}}
 
 # Install desktop config
-{{ if eq .device "desktop" -}}
+{{ if eq .type "desktop" -}}
 sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.minimal }}{{ . }} {{ end }}
 sudo pacman -Sy --needed --noconfirm {{ range .packages.arch.pacman.desktop }}{{ . }} {{ end }}
 
@@ -91,7 +91,7 @@ fi
 sudo chsh -s /usr/bin/zsh
 
 
-{{ if eq .device "desktop" -}}
+{{ if eq .type "desktop" -}}
 # Set wallpaper using swww
 swww img ~/.config/waybar/scripts/Wallpapers/6.png
 
