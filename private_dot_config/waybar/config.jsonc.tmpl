@@ -13,7 +13,7 @@
     {{- end }}
     "modules-left": ["custom/arch", "hyprland/workspaces", "custom/media",],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/headsetVolume", "tray", "custom/updates","systemd-failed-units", "clock", "group/volume", "group/power"],
+    "modules-right": ["custom/headsetVolume", "tray", "custom/updates","systemd-failed-units", "clock", {{- if eq .device "thinkpad"}} "backlight", "battery", {{- end }} "group/volume", "group/power"],
 
     "custom/media": {
         "format": "{icon} {text}",
@@ -189,6 +189,22 @@
         "tooltip": true,
         "tooltip-format": "{:%d/%m/%Y}",
         "on-click":"gnome-calendar"
-    }
+    },
 
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+    },
+    
+    "battery": {
+    "interval": 10,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "max-length": 25
+    }
 }

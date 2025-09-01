@@ -584,3 +584,37 @@ IMPORTANT STUFF
     border-style: solid;
     border-color: alpha(@border, 1);
 }
+
+
+#backlight {
+    background-color: alpha(@base, 1);
+    padding: 7px;
+    margin: 5 0 0 0px;
+    border-radius: 8px;
+
+    color: alpha(@text, 1);
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
+
+
+#battery {
+    background-color: alpha(@base, 1);
+    padding: 7px;
+    margin: 5 0 0 0px;
+    border-radius: 8px;
+
+    color: alpha(@text, 1);
+
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+    border-bottom: 3px;
+    border-style: solid;
+    border-color: alpha(@border, 1);
+}
