@@ -1,7 +1,9 @@
 source = ./hyprland/monitors.conf
 source = ./hyprland/windowrules.conf
 source = ./hyprland/keybinds.conf
-source = ./extras.conf
+{{- if eq .device "home-pc" }}
+source = ./hyprland/workspaces.conf
+{{- end }}
 #################
 ### AUTOSTART ###
 #################
