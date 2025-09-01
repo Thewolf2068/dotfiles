@@ -95,8 +95,10 @@
             "custom/power",
             "custom/logout",
             "custom/reboot",
-            "custom/lock",
-            "custom/windows"
+            {{- if eq .device "home-pc" }}
+            "custom/windows",
+            {{- end }}
+            "custom/lock"
         ]
     },
 
@@ -123,12 +125,15 @@
         "on-click": "wlogout -b 4",
         "tooltip": false
     },
-
+        
+    {{- if eq .device "home-pc" }}
     "custom/windows": {
         "format":"",
         "on-click": "kitty ~/.config/waybar/scripts/set_windows.sh",
         "tooltip": false
     },
+
+    {{- end }}
 
     "hyprland/workspaces": {
         "format": "{icon}",
