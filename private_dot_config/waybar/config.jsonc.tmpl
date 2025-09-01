@@ -8,7 +8,9 @@
     "reload_style_on_change": true,
 
     "layer": "top",
+    {{- if eq .device "home-pc" }}
     "output": "DP-1",
+    {{- end }}
     "modules-left": ["custom/arch", "hyprland/workspaces", "custom/media",],
     "modules-center": ["hyprland/window"],
     "modules-right": ["custom/headsetVolume", "tray", "custom/updates","systemd-failed-units", "clock", "group/volume", "group/power"],
@@ -124,7 +126,7 @@
 
     "custom/windows": {
         "format":"",
-        "on-click": "kitty sudo efibootmgr -n 0000; reboot",
+        "on-click": "kitty ~/.config/waybar/scripts/set_windows.sh",
         "tooltip": false
     },
 
