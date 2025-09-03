@@ -132,7 +132,6 @@ packages:
         - discord-canary
         - ctpv-git
         - gnome-calculator-gtk3
-        - mailspring-bin
         - catppuccin-cursors-frappe
         - catppuccin-gtk-theme-frappe
         - xdg-desktop-portal-hyprland
