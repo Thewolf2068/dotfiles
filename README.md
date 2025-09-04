@@ -1,6 +1,6 @@
 # My Hyprland dotfiles
 
-## Showcase
-![20241229_15h17m19s_grim](https://github.com/user-attachments/assets/16a1c89d-f2c4-48c6-a9da-c44de085777c)
+## Showcase<img width="2560" height="1440" alt="swappy-20250904_153916" src="https://github.com/user-attachments/assets/a111c54a-4e8e-4b2b-b34d-81061d5d5ad5" />
+
 
 ## WIP
