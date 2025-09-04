@@ -1,5 +1,4 @@
 plugin {
-    {{- if eq .device "thinkpad" }}
     hyprexpo {
         columns = 3
         gap_size = 5
@@ -10,7 +9,7 @@ plugin {
         gesture_distance = 250          # how far is the "max"
         gesture_positive = false        # positive = swipe down. Negative = swipe up.
     }
-
+    {{- if eq .device "thinkpad" }}
     touch_gestures {
         # The default sensitivity is probably too low on tablet screens,
         # I recommend turning it up to 4.0
