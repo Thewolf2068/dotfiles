@@ -118,6 +118,7 @@ packages:
         - qutebrowser
         - xf86-video-amdgpu
         - xf86-video-ati
+        - wl-clipboard
     aur:
       minimal:
         - jdk21-temurin
