@@ -64,6 +64,8 @@ packages:
         - zsh
         - zsh-autosuggestions
         - yazi
+        - xclip
+        - xsel
       desktop:
         - easyeffects
         - libva-utils
