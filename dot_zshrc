@@ -43,7 +43,7 @@ export EDITOR=nvim
 
 #Alias
 #alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
-alias clear="clear && krabby random --no-title"
+alias clear="clear && kotofetch"
 alias pushy="git push -u origin main"
 alias ff="fastfetch"
 
@@ -61,6 +61,8 @@ alias cat='bat'
 
 # Reboot directly into Windows
 alias windows='sudo efibootmgr -n 0000; reboot'
+
+alias chedit='chezmoi edit --apply'
 
 #Run at init
 fastfetch
