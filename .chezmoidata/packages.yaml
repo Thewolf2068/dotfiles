@@ -130,6 +130,7 @@ packages:
         - yay-debug
         - zsh-fast-syntax-highlighting
         - neovim-nightly-bin
+        - kotofetch
       desktop:
         - clipse
         - discord-canary
