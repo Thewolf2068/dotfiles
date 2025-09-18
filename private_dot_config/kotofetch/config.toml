@@ -1,7 +1,6 @@
 [display]
 horizontal_padding = 3
 vertical_padding = 1
-show_translation = true
 bold = true
 border = true
 modes = ["proverb"]
