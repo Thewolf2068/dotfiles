@@ -67,3 +67,4 @@ alias chedit='chezmoi edit --apply'
 #Run at init
 fastfetch
 export PATH=$PATH:/home/malenia/.spicetify
+
