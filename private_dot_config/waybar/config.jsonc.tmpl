@@ -27,9 +27,11 @@
         },
         "escape": true,
         "hide-empty-text": true,
-        "on-click": "playerctl --player=spotify play-pause",
+        //"on-click": "playerctl --player=spotify play-pause",
+        "on-click": "playerctl --player=mpd play-pause",
         //"exec": "$HOME/.config/waybar/mediaplayer.py > /dev/null" // Script in resources folder
-        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        //"exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player mpd 2> /dev/null" // Filter player based on name
     },
 
     "custom/updates": {
