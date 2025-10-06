@@ -68,3 +68,18 @@ alias chedit='chezmoi edit --apply'
 fastfetch
 export PATH=$PATH:/home/malenia/.spicetify
 
+
+
+# Auto activate virtual environment if in a project directory with a venv folder
+function auto_activate_venv() {
+    if [ -f "venv/bin/activate" ]; then
+        source venv/bin/activate
+    fi
+}
+
+# Trigger auto_activate_venv function on directory change
+autoload -U add-zsh-hook
+add-zsh-hook chpwd auto_activate_venv
+
+# Created by `pipx` on 2025-10-03 21:16:26
+export PATH="$PATH:/home/malenia/.local/bin"
