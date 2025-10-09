@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
+require("core.lsp")
 
 require("config.lazy")
 
