@@ -48,7 +48,7 @@ packages:
         - sassc
         - sl
         - starship
-        - tldr
+        - tealdeer
         - ttf-fira-code
         - ttf-firacode-nerd
         - ttf-font-awesome
@@ -130,7 +130,7 @@ packages:
         - yay
         - yay-debug
         - zsh-fast-syntax-highlighting
-        - neovim-nightly-bin
+        - neovim-nightly
         - kotofetch
       desktop:
         - clipse
@@ -143,5 +143,6 @@ packages:
         - zen-browser-bin
         - xpedneo-dkms-git
         - wlogout
-        - betterbird-bin
+        - thunderbird
         - waypaper
+        - vicinae-bin

@@ -65,6 +65,8 @@ alias chedit='chezmoi edit --apply'
 
 alias vi='nvim'
 
+alias print='ssh s_bavli@i08fs1.informatik.kit.edu -p 22'
+
 #Run at init
 fastfetch
 export PATH=$PATH:/home/malenia/.spicetify
