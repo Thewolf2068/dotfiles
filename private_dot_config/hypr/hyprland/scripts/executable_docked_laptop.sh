@@ -2,7 +2,7 @@
 
 # Set your monitor and config names here
 EXTERNAL_MONITOR="DP-2"  # Change to your external monitor name
-DOCKED_CONFIG="$HOME/.config/waybar/docked-config-jsonc"
+DOCKED_CONFIG="$HOME/.config/waybar/docked-config.jsonc"
 LAPTOP_CONFIG="$HOME/.config/waybar/config.jsonc"
 
 # Function to restart Waybar with the correct config
