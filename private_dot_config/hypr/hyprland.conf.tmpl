@@ -15,7 +15,7 @@ exec-once = hyprpm reload -n & swww restore & nicotine -s
 exec-once = mpd-discord-rpc & mpd-mpris & mpd
 exec-once = vicinae server
 {{- if eq .device "thinkpad" }}
-exec-once = poweralertd & nm-applet & xss-lock hyprlock & blueman-applet & sleep 10 & ~/.config/hypr/hyprland/scripts/docked_laptop.sh
+exec-once = poweralertd & iwgtk -i & xss-lock hyprlock & blueman-applet & sleep 10 & ~/.config/hypr/hyprland/scripts/docked_laptop.sh
 {{- end }}
 #exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
