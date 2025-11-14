@@ -2,7 +2,7 @@ eval "$(starship init zsh)"
 
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='❯ '
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-transient-prompt/transient-prompt.plugin.zsh
 
 # Prevent duplicates in history
@@ -91,3 +91,9 @@ export PATH="$PATH:/home/malenia/.local/bin"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/malenia/.dart-cli-completion/zsh-config.zsh ]] && . /home/malenia/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
