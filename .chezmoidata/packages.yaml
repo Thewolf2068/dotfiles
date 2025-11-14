@@ -129,7 +129,7 @@ packages:
         - tty-clock
         - yay
         - yay-debug
-        - zsh-fast-syntax-highlighting
+        - zsh-syntax-highlighting-git
         - neovim-nightly
         - kotofetch
       desktop:
