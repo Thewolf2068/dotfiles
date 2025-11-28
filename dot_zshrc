@@ -1,6 +1,5 @@
 eval "$(starship init zsh)"
 
-TRANSIENT_PROMPT_TRANSIENT_PROMPT='❯ '
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-transient-prompt/transient-prompt.plugin.zsh
@@ -40,6 +39,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
 . "$HOME/.cargo/env"
 
 export EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
 
 #Alias
 #alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
@@ -67,22 +67,12 @@ alias vi='nvim'
 
 alias print='ssh s_bavli@i08fs1.informatik.kit.edu -p 22'
 
+alias vencord='curl -sS https://vencord.dev/install.sh | sudo sh'
+
 #Run at init
 fastfetch
 export PATH=$PATH:/home/malenia/.spicetify
 
-
-
-# Auto activate virtual environment if in a project directory with a venv folder
-function auto_activate_venv() {
-    if [ -f "venv/bin/activate" ]; then
-        source venv/bin/activate
-    fi
-}
-
-# Trigger auto_activate_venv function on directory change
-autoload -U add-zsh-hook
-add-zsh-hook chpwd auto_activate_venv
 
 # Created by `pipx` on 2025-10-03 21:16:26
 export PATH="$PATH:/home/malenia/.local/bin"

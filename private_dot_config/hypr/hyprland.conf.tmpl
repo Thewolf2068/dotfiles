@@ -10,8 +10,8 @@ source = ./hyprland/plugins.conf
 exec-once = /usr/lib/polkit-kde-authentication-agent-1
 exec-once = swayncss
 exec-once = clipse -listen
-exec-once = $HOME/repos/packageBackups/dailies.sh & discord --start-minimized & PULSE_SINK=Nova7Game steam -silent & easyeffects --gapplication-service & thunderbird & sunshine & nwg-look -a & swww-daemon --format xrgb & waybar
-exec-once = hyprpm reload -n & swww restore & nicotine -s
+exec-once = $HOME/repos/packageBackups/dailies.sh & discord --start-minimized & PULSE_SINK=Nova7Game steam -silent & thunderbird & sunshine & nwg-look -a & swww-daemon --format xrgb & waybar
+exec-once = hyprpm reload -n & swww restore & nicotine -s & musicpresence
 exec-once = mpd-discord-rpc & mpd-mpris & mpd
 exec-once = vicinae server
 {{- if eq .device "thinkpad" }}

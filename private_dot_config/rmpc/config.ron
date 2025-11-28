@@ -146,16 +146,16 @@
         (
             name: "Queue",
             pane: Split(
-                direction: Horizontal,
+                direction:Vertical,
                 panes: [
-                (size: "60%", pane: Split(
-                   direction: Vertical,
+                (size: "55%", pane: Split(
+                   direction:Horizontal,
                    panes: [
-                    (size: "60%", borders: "ALL", pane: Pane(Queue)),
-                    (size: "40%", borders: "ALL", pane: Pane(Cava)),
+                    (size: "70%", borders: "ALL", pane: Pane(Queue)),
+                    (size: "30%", borders: "ALL", pane: Pane(AlbumArt)),
                     ],
                     )),
-                (size: "40%", borders: "ALL", pane: Pane(AlbumArt))],
+                (size: "45%", borders: "ALL", pane: Pane(Cava))],
             ),
         ),
         (
