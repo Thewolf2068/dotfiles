@@ -1,6 +1,7 @@
 * {
 	background-image: none;
 	box-shadow: none;
+    border-radius: 10px;
 }
 
 window {
@@ -8,7 +9,7 @@ window {
 }
 
 button {
-	border-radius: 0;
+    border-radius: 10px;
 	border-color: #f2d5cf;
 	text-decoration-color: #c6d0f5;
 	color: #c6d0f5;
@@ -18,6 +19,7 @@ button {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
+    padding-right: 10px;
 }
 
 button:focus, button:active, button:hover {
