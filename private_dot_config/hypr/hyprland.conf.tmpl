@@ -12,10 +12,9 @@ exec-once = swayncss
 exec-once = clipse -listen
 exec-once = $HOME/repos/packageBackups/dailies.sh & discord --start-minimized & PULSE_SINK=Nova7Game steam -silent & thunderbird & sunshine & nwg-look -a & awww-daemon --format xrgb & waybar
 exec-once = hyprpm reload -n & awww restore & nicotine -s & musicpresence
-exec-once = mpd-discord-rpc & mpd-mpris & mpd
-exec-once = vicinae server
+exec-once = vicinae server & kdeconnectd
 {{- if eq .device "thinkpad" }}
-exec-once = poweralertd & iwgtk -i & xss-lock hyprlock & blueman-applet & sleep 10 & ~/.config/hypr/hyprland/scripts/docked_laptop.sh
+exec-once = poweralertd & nm-applet & xss-lock hyprlock & blueman-applet & sleep 10 & ~/.config/hypr/hyprland/scripts/docked_laptop.sh & protonmail-bridge --noninteractive
 {{- end }}
 #exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
@@ -173,14 +172,14 @@ misc {
 #############
 
 # https://wiki.hyprland.org/Configuring/Variables/#input
-    input {
+input {
     kb_layout = us
     kb_variant = intl
     kb_model =
     kb_options =
 
-
-    follow_mouse = 2
+    float_switch_override_focus = 0
+    follow_mouse = 0
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
