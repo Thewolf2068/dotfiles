@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.id "cachyos") -}}
 #!/bin/bash
 set -e  # Exit on error
 
