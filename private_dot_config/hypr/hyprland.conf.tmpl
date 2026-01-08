@@ -2,7 +2,6 @@ source = ./hyprland/monitors.conf
 source = ./hyprland/windowrules.conf
 source = ./hyprland/keybinds.conf
 source = ./hyprland/workspaces.conf
-source = ./hyprland/plugins.conf
 
 #################
 ### AUTOSTART ###
@@ -11,7 +10,7 @@ exec-once = /usr/lib/polkit-kde-authentication-agent-1
 exec-once = swayncss
 exec-once = clipse -listen
 exec-once = $HOME/repos/packageBackups/dailies.sh & discord --start-minimized & PULSE_SINK=Nova7Game steam -silent & thunderbird & sunshine & nwg-look -a & awww-daemon --format xrgb & waybar
-exec-once = hyprpm reload -n & awww restore & nicotine -s & musicpresence
+exec-once = awww restore & nicotine -s & musicpresence
 exec-once = vicinae server & kdeconnectd
 {{- if eq .device "thinkpad" }}
 exec-once = poweralertd & nm-applet & xss-lock hyprlock & blueman-applet & sleep 10 & ~/.config/hypr/hyprland/scripts/docked_laptop.sh & protonmail-bridge --noninteractive
