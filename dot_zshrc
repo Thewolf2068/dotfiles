@@ -68,6 +68,7 @@ alias vi='nvim'
 alias print='ssh s_bavli@i08fs1.informatik.kit.edu -p 22'
 
 alias vencord='curl -sS https://vencord.dev/install.sh | sudo sh'
+alias open='xdg-open'
 
 #Run at init
 fastfetch
@@ -86,4 +87,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/malenia/.dart-cli-completion/zsh-config.zsh ]] && . /home/malenia/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+
 
