@@ -351,7 +351,7 @@ layer-rule {
 }
 
 workspace "music" {
-    open-on-output "HKC OVERSEAS LIMITED E2721F 0000000000001"
+    // open-on-output "HKC OVERSEAS LIMITED E2721F 0000000000001"
 }
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
