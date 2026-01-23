@@ -119,6 +119,11 @@ output "Lenovo Group Limited 0x41B5 Unknown" {
     position x=5120 y=850
 }
 
+output "Virtual-1" {
+    mode "2560x1600@59.987"
+    position x=3297 y=1440
+}
+
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
