@@ -105,6 +105,7 @@ output "LG Electronics LG ULTRAGEAR 407NTVS68263" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=2560 y=0
+    focus-at-startup
 }
 
 output "HKC OVERSEAS LIMITED E2721F 0000000000001" {
