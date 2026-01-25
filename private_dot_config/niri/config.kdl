@@ -47,7 +47,7 @@ input {
         // off
         // natural-scroll
         // accel-speed 0.2
-        // accel-profile "flat"
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -86,7 +86,7 @@ output "LG Electronics LG ULTRAGEAR 407NTVS68263" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440@200"
+    mode "2560x1440@144"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -324,11 +324,10 @@ animations {
 }
 
 window-rule {
-    geometry-corner-radius 8
     draw-border-with-background false
+    geometry-corner-radius 8
     clip-to-geometry true
-    opacity 0.95
-
+    opacity 0.9
 }
 window-rule {
     match app-id="kitty" 
@@ -346,7 +345,16 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id="zen"
+    opacity 0.85
+    draw-border-with-background false
+}
 
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
 layer-rule {
     // This is for swaybg; change for other wallpaper tools.
     // Find the right namespace by running niri msg layers.
@@ -620,8 +628,5 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
-
-
-include "dms/outputs.kdl"
 
 include "dms/cursor.kdl"
