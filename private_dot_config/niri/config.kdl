@@ -327,7 +327,7 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 8
     clip-to-geometry true
-    opacity 0.9
+    opacity 0.95
 }
 window-rule {
     match app-id="kitty" 
@@ -345,11 +345,11 @@ window-rule {
     open-maximized true
 }
 
-window-rule {
-    match app-id="zen"
-    opacity 0.85
-    draw-border-with-background false
-}
+// window-rule {
+//     match app-id="zen"
+//     opacity 0.85
+//     draw-border-with-background false
+// }
 
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
@@ -627,6 +627,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    Mod+Alt+Ctrl+G { spawn-sh "~/.config/niri/scripts/niri-monitor-zen.sh"; }
+
 }
 
 include "dms/cursor.kdl"
