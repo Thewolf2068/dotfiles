@@ -294,7 +294,7 @@ layout {
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -629,6 +629,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Mod+Alt+Ctrl+G { spawn-sh "~/.config/niri/scripts/niri-monitor-zen.sh"; }
+    Mod+Alt+Ctrl+H { spawn-sh "loginctl lock-session"; }
 
 }
 
