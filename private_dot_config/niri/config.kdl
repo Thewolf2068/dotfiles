@@ -6,6 +6,8 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
+
+spawn-sh-at-startup "vicinae server"
 input {
     keyboard {
         xkb {
@@ -382,7 +384,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Q hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Space { spawn-sh "rofi -show drun -theme-str 'prompt { enabled: false; }'"; }
+    Mod+Space { spawn-sh "vicinae toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -610,6 +612,8 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
+    Mod+P { screenshot; }
+
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
     // so they may, for example, forward the key presses as-is to a remote machine.
@@ -630,6 +634,9 @@ binds {
 
     Mod+Alt+Ctrl+G { spawn-sh "~/.config/niri/scripts/niri-monitor-zen.sh"; }
     Mod+Alt+Ctrl+H { spawn-sh "loginctl lock-session"; }
+
+
+    Mod+B { spawn-sh "zen-browser"; }
 
 }
 
