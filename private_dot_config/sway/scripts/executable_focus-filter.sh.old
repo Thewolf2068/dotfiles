@@ -1,0 +1,7 @@
+#!/bin/bash
+# Get the name of the output that WOULD be focused next
+NEXT_OUTPUT=$(swaymsg -t get_tree | jq -r '.. | select(.type? == "output" and .focused == false) | .name' | head -n 1)
+
+if [ "$NEXT_OUTPUT" != "HEADLESS-1" ]; then
+    swaymsg focus $1
+fi
