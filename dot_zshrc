@@ -1,0 +1,86 @@
+eval "$(starship init zsh)"
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-transient-prompt/transient-prompt.plugin.zsh
+
+# Prevent duplicates in history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicate commands
+setopt HIST_IGNORE_DUPS       # Ignore duplicate commands in history
+setopt HIST_SAVE_NO_DUPS      # Don't save duplicates in history
+setopt HIST_EXPIRE_DUPS_FIRST # Remove oldest duplicates first
+
+
+# Mark stuff when tabbing through selection
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # Use LS_COLORS for color styling
+export ZLS_COLORS="hl=48;5;27"  # Highlight current selection
+bindkey '^[[Z' reverse-menu-complete
+
+
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey "^[[3~" delete-char
+
+
+bindkey "^[[5~" history-search-backward  # Page Up for history search
+bindkey "^[[6~" history-search-forward   # Page Down for history search
+
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
+
+. "$HOME/.cargo/env"
+
+export EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
+
+#Alias
+#alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
+alias clear="clear && kotofetch"
+alias pushy="git push -u origin main"
+alias ff="fastfetch"
+
+# Changing "ls" to "eza"
+alias ls='eza --icons --color=always --group-directories-first'
+alias ll='eza -alF --icons --color=always --group-directories-first'
+alias la='eza -a --icons --color=always --group-directories-first'
+alias l='eza -lF --icons --color=always --group-directories-first'
+
+alias vv='tput setab 3; printf "%*s" $( tput cols ) ""; tput setab 0; echo'
+
+# Changing "cat" to "bat"
+alias cat='bat' 
+
+# Reboot directly into Windows
+alias windows='sudo efibootmgr -n 0000; reboot'
+
+alias chedit='chezmoi edit --apply'
+
+alias vi='nvim'
+
+alias vencord='curl -sS https://vencord.dev/install.sh | sudo sh'
+alias open='xdg-open'
+#Run at init
+fastfetch
+
+# Created by `pipx` on 2025-10-03 21:16:26
+export PATH="$PATH:/home/malenia/.local/bin"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/malenia/.dart-cli-completion/zsh-config.zsh ]] && . /home/malenia/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
