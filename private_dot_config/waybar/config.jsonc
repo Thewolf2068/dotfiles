@@ -1,0 +1,163 @@
+{
+    "height": 30,
+    "spacing": 4,
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+    "margin-bottom": 5,
+    "reload_style_on_change": true,
+    "layer": "top",
+
+    // Modules Layout
+    "modules-left": [
+        "custom/arch",
+        "sway/workspaces"
+        // "custom/media"
+    ],
+    "modules-center": [
+        "custom/media"
+    ],
+    "modules-right": [
+        "custom/headsetVolume",
+        "tray",
+        "custom/updates",
+        "clock",
+        "battery",
+        "network",
+        "group/volume",
+        "custom/power"
+    ],
+
+    // Module Configurations
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "escape": true,
+        "hide-empty-text": true,
+        "on-click": "playerctl --player=tauon play-pause",
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player tauon 2> /dev/null"
+    },
+
+    "cava": {
+        "framerate": 120,
+        "autosens": 1,
+        "bars": 12,
+        "method": "pipewire",
+        "source": "auto",
+        "bar_delimiter": 0,
+        "input_delay": 2,
+        "sleep_timer": 2,
+        "hide_on_silence": true,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    },
+
+    "group/volume": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+
+
+    "custom/power": {
+        "format": "󰤆",
+        "on-click": "wleave",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": " ",
+            "1:Browser": " ",
+            "2:Code": " ",
+            "3:Music": " ",
+            "4:Social": "󱋊 ",
+            "5:Kitty": " ",
+            "6:Games": "󰊴 ",
+            "99": "󰸷 "
+
+        }
+    },
+
+    "sway/window": {
+        "format": "{app_id}",
+        "max-length": 50,
+        "all-outputs": true,
+        "offscreen-css": true,
+        "offscreen-css-text": "(inactive)",
+        "rewrite": {
+            "(.*) - Mozilla Firefox": " $1",
+            "(.*) - fish": "> [$1]"
+        }
+    },
+
+    "custom/arch": {
+        "format": "<span size='large' color='#179299'>󰣇</span>",
+        "on-click": "waypaper",
+        "tooltip-format": "btw"
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 7,
+        "show-passive-items": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl -- set-sink-volume 0 100%"
+    },
+
+    "clock": {
+        "format": "<span color='#b4befe'>  </span>{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%d/%m/%Y}",
+        "on-click": "gnome-calendar"
+    },
+
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "max-length": 25
+    },
+
+    "network": {
+        "interface": "wlp2s0",
+        "format": "{ifname}",
+        "format-wifi": " ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "kitty nmtui"
+    }
+}
