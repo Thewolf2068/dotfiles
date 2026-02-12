@@ -1,0 +1,198 @@
+@import "frappe.css";
+
+@define-color border @sky;
+@define-color text @teal;
+
+/* -----------------------------------------------------------------------------
+ * Global Reset & Font
+ * -------------------------------------------------------------------------- */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "FiraCode Nerd", "Sofia Pro",  sans-serif, FontAwesome;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: alpha(@base, 1);
+    border: 1px solid alpha(@overlay0, 0.5);
+    border-radius: 8px;
+}
+tooltip label {
+    color: @text;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module Styles
+ * -------------------------------------------------------------------------- */
+
+/* This groups all modules that share the "Card" look 
+   (Base background, Bottom Border, Rounded Corners)
+*/
+#custom-arch,
+#pulseaudio,
+#sway-window,
+#window,
+#custom-media,
+#custom-headsetVolume,
+#tray,
+#custom-updates,
+#clock,
+#battery,
+#network,
+#backlight,
+#custom-power,
+
+
+
+#pulseaudio-slider {
+    background-color: alpha(@base, 1);
+    color: @text;
+    padding: 7px 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    
+    /* The blue underline style */
+    border-bottom: 3px solid @border; 
+}
+
+/* -----------------------------------------------------------------------------
+ * Workspaces
+ * -------------------------------------------------------------------------- */
+#workspaces {
+    background-color: alpha(@base, 1);
+    border-radius: 0 8px 8px 0;
+    margin: 5px 0 0 -5px;
+    padding: 0 8px;
+    border-bottom: 3px solid @border;
+}
+
+#workspaces button {
+    /* 4px is the middle ground. 
+       If they still touch, change this to 5px. 
+       If the gap is still too big, try 3px. */
+    padding: 0 0px; 
+    
+    /* Keeps the click targets from pushing each other */
+    margin: 0; 
+    
+    /* Standard styles */
+    background-color: transparent;
+    color: @text;
+    box-shadow: inset 0 -3px transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.focused {
+    box-shadow: inset 0 -3px @mauve;
+}
+
+#workspaces button.urgent {
+    box-shadow: inset 0 -3px @red;
+}
+
+#workspaces button:hover {
+    box-shadow: inset 0 -3px @teal;
+}
+
+/* -----------------------------------------------------------------------------
+ * Specific Module Tweaks
+ * -------------------------------------------------------------------------- */
+
+/* Arch Logo - Left Cap */
+#custom-arch {
+    color: @teal;
+    border-radius: 8px 0 0 8px;
+    margin-right: -5px; /* Connects to workspaces */
+    padding-right: 12px;
+}
+
+#pulseaudio {
+    color: @teal;
+    background-color: alpha(@base, 1);
+    border-radius: 8px 0 0 8px;
+    margin-right: -5px; /* Connects to workspaces */
+    padding-right: 12px;
+}
+/* Power Button - Right Cap */
+#custom-power {
+    margin-right: 10px;
+    border-radius: 0 8px 8px 0;
+    margin-left: -5px;
+    color: @red;
+}
+
+#window {
+    font-weight: bold;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#wireplumber.muted {
+    background-color: @red;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
+/* -----------------------------------------------------------------------------
+ * Sliders & Groups
+ * -------------------------------------------------------------------------- */
+
+
+
+#pulseaudio-slider {
+    padding: 0px 10px; /* Sliders need less vertical padding usually */
+    margin-right: -5px;
+    border-radius: 1px 0 0 8px; /* Connect to audio icon */
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: @surface0;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: @text;
+}
+
+/* Animations */
+@keyframes blink {
+    to {
+        background-color: @text;
+        color: @base;
+    }
+}
