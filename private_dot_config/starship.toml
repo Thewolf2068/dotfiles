@@ -1,0 +1,66 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+
+format = '''
+[](peach)$directory$character
+'''
+
+right_format = '''
+[](bold mauve)$git_status$git_branch
+'''
+
+# Sets user-defined palette
+# Palettes must be defined _after_ this line
+palette = "catppuccin_frappe"
+
+# Starship modules
+[character]
+# Note the use of Catppuccin color 'peach'
+success_symbol = "[[󰴈](teal) ❯](sapphire)"
+error_symbol = "[[󰴈](red) ❯](peach)"
+vimcmd_symbol = "[󰴈 ❮](subtext1)" # For use with zsh-vi-mode
+
+[git_branch]
+style = "bold mauve"
+symbol = ' '
+[git_status]
+style = "pink"
+deleted = '✘${count}'
+modified = '!${count}'
+ahead = '⇡${count}'
+behind = '⇣${count}'
+
+[directory]
+truncation_length = 6
+style = "bold lavender"
+truncation_symbol = './'
+repo_root_style = 'rosewater'
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
