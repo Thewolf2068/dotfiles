@@ -1,0 +1,24 @@
+
+#lock {
+    background-image: url("/home/<USER>/.config/wlogout/icons/lock.svg");
+}
+
+#logout {
+    background-image: url("/home/<USER>/.config/wlogout/icons/logout.svg");
+}
+
+#suspend {
+    background-image: url("/home/<USER>/.config/wlogout/icons/suspend.svg");
+}
+
+#hibernate {
+    background-image: url("/home/<USER>/.config/wlogout/icons/hibernate.svg");
+}
+
+#shutdown {
+    background-image: url("/home/<USER>/.config/wlogout/icons/shutdown.svg");
+}
+
+#reboot {
+    background-image: url("/home/<USER>/.config/wlogout/icons/reboot.svg");
+}
