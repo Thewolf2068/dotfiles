@@ -34,8 +34,8 @@
         "return-type": "json",
         "escape": true,
         "hide-empty-text": true,
-        "on-click": "swayosd-client --player 'tauon'  --playerctl play-pause",
-        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player tauon 2> /dev/null"
+        "on-click": "swayosd-client --player 'Feishin'  --playerctl play-pause",
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player Feishin 2> /dev/null"
     },
 
     "cava": {
