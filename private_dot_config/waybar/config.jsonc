@@ -72,7 +72,7 @@
 
     "custom/power": {
         "format": "󰤆",
-        "on-click": "wleave",
+        "on-click": "~/.config/sway/scripts/powermenu.sh",
         "tooltip": false
     },
 
