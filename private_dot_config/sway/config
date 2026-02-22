@@ -8,3 +8,5 @@ set $up k
 set $right l
 
 include ./modules/*.conf
+
+workspace "1:Browser"
