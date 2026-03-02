@@ -20,10 +20,11 @@
     "modules-right": [
         "custom/headsetVolume",
         "tray",
+        "bluetooth",
         "custom/updates",
         "clock",
-        "battery",
         "network",
+        "battery",
         "group/volume",
         "custom/power"
     ],
@@ -37,6 +38,18 @@
         "on-click": "swayosd-client --player 'Feishin'  --playerctl play-pause",
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player Feishin 2> /dev/null"
     },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "$HOME/.config/sway/scripts/fuzzel/bluetooth_menu.sh"
+
+    },
+
 
     "cava": {
         "framerate": 120,
@@ -148,16 +161,18 @@
     },
 
     "network": {
-        "interface": "wlp2s0",
-        "format": "{ifname}",
-        "format-wifi": " ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-        "format-disconnected": "",
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50,
-        "on-click": "kitty nmtui"
-    }
+        // Minimalist Bar Display
+        "format-wifi": "   {signalStrength}%",
+        "format-ethernet": "󰈀   Wired",
+        "format-disconnected": "󰤮   Offline",
+
+        // Detailed Tooltips
+        "tooltip-format-wifi": "SSID: {essid}\nIP: {ipaddr}\nFreq: {frequency} MHz\n󰇚 {bandwidthDownBytes} | 󰕒 {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\n󰇚 {bandwidthDownBytes} | 󰕒 {bandwidthUpBytes}",
+        "tooltip-format-disconnected": "No network connection",
+
+        // General Settings
+        "max-length": 10,
+        "on-click": "$HOME/.config/sway/scripts/fuzzel/network_manager.sh",
+    },
 }
