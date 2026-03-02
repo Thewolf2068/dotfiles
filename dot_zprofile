@@ -1,0 +1,4 @@
+# Start Sway automatically upon login on tty1 and save logs
+if [[ -z $WAYLAND_DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    exec sway > ~/.sway.log 2>&1
+fi
