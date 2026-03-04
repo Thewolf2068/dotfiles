@@ -48,7 +48,7 @@ tooltip label {
 #backlight,
 #custom-power,
 #bluetooth,
-
+#cava,
 
 
 #pulseaudio-slider {
@@ -137,6 +137,12 @@ tooltip label {
 }
 
 #bluetooth {
+    background-color: alpha(@base, 1);
+
+    /* The blue underline style */
+    border-bottom: 3px solid @border; 
+}
+#cava {
     background-color: alpha(@base, 1);
 
     /* The blue underline style */

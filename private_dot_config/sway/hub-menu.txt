@@ -1,0 +1,10 @@
+󰣆 HUB MODE
+
+ <b> Bluetooth
+ <n> Network
+ <p> Power
+ <v> Vault
+ <e> Emojis
+ <c> Clipboard
+
+ [Esc] Cancel

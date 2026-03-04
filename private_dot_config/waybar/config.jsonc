@@ -11,7 +11,8 @@
     // Modules Layout
     "modules-left": [
         "custom/arch",
-        "sway/workspaces"
+        "sway/workspaces",
+        "cava"
         // "custom/media"
     ],
     "modules-center": [
@@ -85,7 +86,7 @@
 
     "custom/power": {
         "format": "󰤆",
-        "on-click": "~/.config/sway/scripts/powermenu.sh",
+        "on-click": "$HOME/.config/sway/scripts/fuzzel/powermenu.sh",
         "tooltip": false
     },
 
