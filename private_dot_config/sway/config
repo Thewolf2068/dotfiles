@@ -9,4 +9,4 @@ set $right l
 
 include ./modules/*.conf
 
-workspace "1:Browser"
+workspace "1:Browser" output "LG Electronics LG ULTRAGEAR 407NTVS68263"

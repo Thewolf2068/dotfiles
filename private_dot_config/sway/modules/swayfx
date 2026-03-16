@@ -5,6 +5,3 @@ corner_radius 15
 default_dim_inactive 0.05
 blur enable
 blur_passes 2
-
-
-

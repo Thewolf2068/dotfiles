@@ -40,6 +40,8 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True # Cuda shenanigans
 
 export EDITOR=nvim
 export SYSTEMD_EDITOR=nvim
+export LEDGER_FILE="$HOME/Finanzen/$(date +%Y).journal"
+
 
 #Alias
 #alias clear="printf '\033[2J\033[3J\033[1;1H' && krabby random --no-title"
