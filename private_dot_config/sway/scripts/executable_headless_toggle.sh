@@ -12,8 +12,8 @@ if [ -n "$PHYSICAL_ACTIVE" ]; then
 else
     swaymsg output "*" enable
     swaymsg output "HEADLESS-1" disable
-    pkill waybar
-    waybar & 
+    # pkill waybar
+    # waybar & 
     swaymsg workspace "99"
-    swaymsg move workspace to output '"LG Electronics LG ULTRAGEAR 407NTVS68263"'
+    # swaymsg move workspace to output '"LG Electronics LG ULTRAGEAR 407NTVS68263"'
 fi
