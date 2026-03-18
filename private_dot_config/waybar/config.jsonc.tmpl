@@ -21,11 +21,14 @@
     "modules-right": [
         "custom/headsetVolume",
         "tray",
+        {{- if eq .chezmoi.hostname "thinkpadofmiquella" }}
         "bluetooth",
-        "custom/updates",
-        "clock",
+        {{- end }}
         "network",
+        "clock",
+        {{- if eq .chezmoi.hostname "thinkpadofmiquella" }}
         "battery",
+        {{- end }}
         "group/volume",
         "custom/power"
     ],
