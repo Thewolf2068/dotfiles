@@ -9,8 +9,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "FiraCode Nerd", "Sofia Pro",  sans-serif, FontAwesome;
-    font-size: 13px;
+    font-family: "FiraCode Nerd", "Sofia Pro", sans-serif, FontAwesome;
+    font-size: 15px;
     min-height: 0;
 }
 
@@ -19,9 +19,9 @@ window#waybar {
 }
 
 tooltip {
-    background: alpha(@base, 1);
-    border: 1px solid alpha(@overlay0, 0.5);
-    border-radius: 8px;
+    background: @base;
+    border: 2px solid @overlay0;
+    border-radius: 0;
 }
 tooltip label {
     color: @text;
@@ -31,9 +31,6 @@ tooltip label {
  * Module Styles
  * -------------------------------------------------------------------------- */
 
-/* This groups all modules that share the "Card" look 
-   (Base background, Bottom Border, Rounded Corners)
-*/
 #custom-arch,
 #pulseaudio,
 #sway-window,
@@ -49,17 +46,12 @@ tooltip label {
 #custom-power,
 #bluetooth,
 #cava,
-
-
 #pulseaudio-slider {
     background-color: alpha(@base, 1);
     color: @text;
-    padding: 7px 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    
-    /* The blue underline style */
-    border-bottom: 3px solid @border; 
+    padding: 4px 14px;
+    margin: 4px 2px 0 2px;
+    border: 2px solid @border;
 }
 
 /* -----------------------------------------------------------------------------
@@ -67,64 +59,49 @@ tooltip label {
  * -------------------------------------------------------------------------- */
 #workspaces {
     background-color: alpha(@base, 1);
-    border-radius: 0 8px 8px 0;
-    margin: 5px 0 0 -5px;
-    padding: 0 8px;
-    border-bottom: 3px solid @border;
+    margin: 4px 2px 0 2px;
+    padding: 0 4px;
+    border: 2px solid @border;
 }
 
 #workspaces button {
-    /* 4px is the middle ground. 
-       If they still touch, change this to 5px. 
-       If the gap is still too big, try 3px. */
-    padding: 0 0px; 
-    
-    /* Keeps the click targets from pushing each other */
-    margin: 0; 
-    
-    /* Standard styles */
+    padding: 0 6px;
+    margin: 0;
     background-color: transparent;
     color: @text;
-    box-shadow: inset 0 -3px transparent;
-    transition: all 0.2s ease;
+    box-shadow: inset 0 -2px transparent;
+    transition: all 0.15s ease;
 }
 
 #workspaces button.focused {
-    box-shadow: inset 0 -3px @mauve;
+    box-shadow: inset 0 -2px @mauve;
+    color: @mauve;
 }
 
 #workspaces button.urgent {
-    box-shadow: inset 0 -3px @red;
+    box-shadow: inset 0 -2px @red;
+    color: @red;
 }
 
 #workspaces button:hover {
-    box-shadow: inset 0 -3px @teal;
+    box-shadow: inset 0 -2px @teal;
+    color: @teal;
 }
 
 /* -----------------------------------------------------------------------------
  * Specific Module Tweaks
  * -------------------------------------------------------------------------- */
 
-/* Arch Logo - Left Cap */
 #custom-arch {
     color: @teal;
-    border-radius: 8px 0 0 8px;
-    margin-right: -5px; /* Connects to workspaces */
-    padding-right: 12px;
+    /* padding: 0px 16px; */
 }
 
 #pulseaudio {
     color: @teal;
-    background-color: alpha(@base, 1);
-    border-radius: 8px 0 0 8px;
-    margin-right: -5px; /* Connects to workspaces */
-    padding-right: 12px;
 }
-/* Power Button - Right Cap */
+
 #custom-power {
-    margin-right: 10px;
-    border-radius: 0 8px 8px 0;
-    margin-left: -5px;
     color: @red;
 }
 
@@ -134,20 +111,9 @@ tooltip label {
 
 #clock {
     font-weight: bold;
+    padding: 4px 16px;
 }
 
-#bluetooth {
-    background-color: alpha(@base, 1);
-
-    /* The blue underline style */
-    border-bottom: 3px solid @border; 
-}
-#cava {
-    background-color: alpha(@base, 1);
-
-    /* The blue underline style */
-    border-bottom: 3px solid @border; 
-}
 #battery.charging, #battery.plugged {
     color: @green;
 }
@@ -178,31 +144,29 @@ tooltip label {
 }
 
 /* -----------------------------------------------------------------------------
- * Sliders & Groups
+ * Sliders
  * -------------------------------------------------------------------------- */
 
-
-
 #pulseaudio-slider {
-    padding: 0px 10px; /* Sliders need less vertical padding usually */
-    margin-right: -5px;
-    border-radius: 1px 0 0 8px; /* Connect to audio icon */
+    padding: 4px 10px;
 }
 
 #pulseaudio-slider trough {
     min-height: 10px;
     min-width: 80px;
-    border-radius: 5px;
+    border-radius: 0;
     background-color: @surface0;
 }
 
 #pulseaudio-slider highlight {
     min-width: 10px;
-    border-radius: 5px;
+    border-radius: 0;
     background-color: @text;
 }
 
-/* Animations */
+/* -----------------------------------------------------------------------------
+ * Animations
+ * -------------------------------------------------------------------------- */
 @keyframes blink {
     to {
         background-color: @text;
