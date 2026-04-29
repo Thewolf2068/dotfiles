@@ -85,4 +85,18 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -f /home/malenia/.dart-cli-completion/zsh-config.zsh ]] && . /home/malenia/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+seal-secret() {
+  local name=$1
+  local namespace=$2
+  shift 2
+  
+  kubectl create secret generic $name \
+    --namespace=$namespace \
+    $@ \
+    --dry-run=client -o yaml | \
+  kubeseal --format yaml \
+    --cert ~/.kube/pub-sealed-secrets.pem
+}
+
+export KUBECONFIG=~/.kube/hetzner.yaml
 
