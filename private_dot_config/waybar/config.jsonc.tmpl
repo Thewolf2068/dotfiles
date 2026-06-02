@@ -11,8 +11,7 @@
     // Modules Layout
     "modules-left": [
         "custom/arch",
-        "sway/workspaces",
-        "cava"
+        "sway/workspaces"
         // "custom/media"
     ],
     "modules-center": [
@@ -55,18 +54,6 @@
     },
 
 
-    "cava": {
-        "framerate": 120,
-        "autosens": 1,
-        "bars": 12,
-        "method": "pipewire",
-        "source": "auto",
-        "bar_delimiter": 0,
-        "input_delay": 2,
-        "sleep_timer": 2,
-        "hide_on_silence": true,
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-    },
 
     "group/volume": {
         "orientation": "horizontal",
@@ -124,7 +111,7 @@
     },
 
     "custom/arch": {
-        "format": "<span size='large' color='#179299'>󰣇</span>",
+        "format": "<span size='large' color='#179299'>󰣇 </span>",
         "on-click": "waypaper",
         "tooltip-format": "btw"
     },
@@ -138,9 +125,9 @@
     "pulseaudio": {
         "format": "{icon}",
         "tooltip-format": "{volume}%",
-        "format-muted": "",
+        "format-muted": " ",
         "format-icons": {
-            "default": ["", ""]
+            "default": [" ", " "]
         },
         "on-click": "pavucontrol",
         "on-click-right": "pactl -- set-sink-volume 0 100%"
@@ -160,7 +147,11 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-icons": [" ", " ", " ", " ", " "],
+        "format-icons": {
+            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰂄"],
+        },
+
         "max-length": 25
     },
 

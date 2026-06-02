@@ -99,4 +99,3 @@ seal-secret() {
 }
 
 export KUBECONFIG=~/.kube/hetzner.yaml
-
