@@ -19,6 +19,7 @@
     ../../modules/home/nvim.nix
     ../../modules/home/kitty.nix
     ../../modules/home/fuzzel.nix
+    ../../modules/home/cursor.nix
     ../../modules/home/git.nix
   ];
 }
