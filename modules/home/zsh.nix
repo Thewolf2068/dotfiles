@@ -1,0 +1,33 @@
+{ pkgs, ... }:
+
+{
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      ".." = "cd ..";
+      "clear" = "clear && kotofetch";
+      "ff" = "fastfetch";
+      "ls" = "eza --icons --color=always --group-directories-first";
+      "ll" = "eza -alF --icons --color=always --group-directories-first";
+      "la" = "eza -a --icons --color=always --group-directories-first";
+      "l" = "eza -lF --icons --color=always --group-directories-first";
+      "vi" = "nvim";
+    };
+    initContent = ''
+      fastfetch
+      set -o emacs
+      bindkey "^[[1;5D" backward-word
+      bindkey "^[[1;5C" forward-word
+      '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+    };
+  };
+}

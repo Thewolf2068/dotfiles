@@ -1,0 +1,94 @@
+{ pkgs, ... }:
+
+let
+  # Bitmasks for 10 distinct tags (1 << (N-1))
+  tags = {
+    temp1   = "1";    # Tag 1  (1 << 0) -> '1'
+    temp2   = "2";    # Tag 2  (1 << 1) -> '2'
+    temp3   = "4";    # Tag 3  (1 << 2) -> '3'
+    browser = "8";    # Tag 4  (1 << 3) -> 'b'
+    code    = "16";   # Tag 5  (1 << 4) -> 'c'
+    music   = "32";   # Tag 6  (1 << 5) -> 's'
+    social  = "64";   # Tag 7  (1 << 6) -> 'd'
+    kitty   = "128";  # Tag 8  (1 << 7) -> 'k'
+    games   = "256";  # Tag 9  (1 << 8) -> 'g'
+    hide    = "512";  # Tag 10 (1 << 9) -> 'h'
+  };
+  # Helper functions to focus a tag or move a window to a tag, then drop back to normal mode
+  focusTag = mask: "spawn \"sh -c 'riverctl set-focused-tags ${mask} && riverctl enter-mode normal'\"";
+  moveTag  = mask: "spawn \"sh -c 'riverctl set-view-tags ${mask} && riverctl set-focused-tags ${mask} && riverctl enter-mode normal'\"";
+in
+{
+  wayland.windowManager.river = {
+    enable = true;
+    extraConfig = ''
+      # 1. Tile layout configuration
+      riverctl spawn "rivertile -main-ratio 0.5 -view-padding 5 -outer-padding 5"
+      riverctl default-layout rivertile
+
+      # 2. Startup Daemons
+      riverctl spawn "swaybg -m fill -i ${./images/wallpapers/mifulu/5.png}"
+      riverctl spawn "swayosd-server"
+      riverctl spawn "swaync"
+
+      # 3. Base Keybindings
+      riverctl map normal Mod4 Q spawn kitty
+      riverctl map normal Mod4 D spawn fuzzel
+      riverctl map normal Mod4 C close
+      riverctl map normal Mod4 F toggle-fullscreen
+      riverctl map normal Mod4 T toggle-float
+      riverctl map normal Mod4 N spawn "swaync-client -t"
+
+      # Focus / Movement (Vim directionals)
+      riverctl map normal Mod4 H focus-view left
+      riverctl map normal Mod4 J focus-view down
+      riverctl map normal Mod4 K focus-view up
+      riverctl map normal Mod4 L focus-view right
+
+      riverctl map normal Mod4+Shift H swap left
+      riverctl map normal Mod4+Shift J swap down
+      riverctl map normal Mod4+Shift K swap up
+      riverctl map normal Mod4+Shift L swap right
+
+      # Media / Volume (SwayOSD)
+      riverctl map normal None XF86AudioRaiseVolume spawn "swayosd-client --output-volume raise --max-volume 100"
+      riverctl map normal None XF86AudioLowerVolume spawn "swayosd-client --output-volume lower --max-volume 100"
+      riverctl map normal None XF86MonBrightnessUp spawn "swayosd-client --brightness +5"
+      riverctl map normal None XF86MonBrightnessDown spawn "swayosd-client --brightness -5"
+
+      # 4. Declare & Bind "Summon" Mode
+      riverctl declare-mode summon
+      riverctl map normal Mod4 Space enter-mode summon
+
+      # Exit keys
+      riverctl map summon None Escape enter-mode normal
+      riverctl map summon None Return enter-mode normal
+
+      # Summon Mode: Focus Tag (Hide all others, display selected)
+      riverctl map summon None b ${focusTag tags.browser}
+      riverctl map summon None c ${focusTag tags.code}
+      riverctl map summon None s ${focusTag tags.music}
+      riverctl map summon None d ${focusTag tags.social}
+      riverctl map summon None k ${focusTag tags.kitty}
+      riverctl map summon None g ${focusTag tags.games}
+      riverctl map summon None 1 ${focusTag tags.temp1}
+      riverctl map summon None 2 ${focusTag tags.temp2}
+      riverctl map summon None 3 ${focusTag tags.temp3}
+      riverctl map summon None h ${focusTag tags.hide}
+
+      # Summon Mode: Move Window to Tag & Switch Focus
+      riverctl map summon Shift B ${moveTag tags.browser}
+      riverctl map summon Shift C ${moveTag tags.code}
+      riverctl map summon Shift S ${moveTag tags.music}
+      riverctl map summon Shift D ${moveTag tags.social}
+      riverctl map summon Shift K ${moveTag tags.kitty}
+      riverctl map summon Shift G ${moveTag tags.games}
+      riverctl map summon Shift 1 ${moveTag tags.temp1}
+      riverctl map summon Shift 2 ${moveTag tags.temp2}
+      riverctl map summon Shift 3 ${moveTag tags.temp3}
+      riverctl map summon Shift H ${moveTag tags.hide}
+
+      riverctl rule-add -app-id "zen-beta" tags ${tags.browser}
+    '';
+  };
+}
