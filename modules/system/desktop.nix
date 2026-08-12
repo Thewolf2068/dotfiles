@@ -42,5 +42,11 @@
     variant = "alt-intl";
   };
 
+
+  environment.variables = {
+    cursor_size = "24";
+    cursor_theme = "BreezeX-Black";
+  };
+
   services.printing.enable = true;
 }
