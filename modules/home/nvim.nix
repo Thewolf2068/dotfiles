@@ -17,6 +17,43 @@
           mapleader = " ";
         };
 
+        autocomplete.blink-cmp = {
+          enable = true;
+      
+          setupOpts = {
+            keymap = {
+              preset = "default";
+      
+              "<C-j>" = [
+                "select_next"
+                "fallback"
+              ];
+      
+              "<C-k>" = [
+                "select_prev"
+                "fallback"
+              ];
+            };
+      
+            sources.default = [
+              "lsp"
+              "path"
+              "snippets"
+              "buffer"
+            ];
+      
+            completion = {
+              documentation = {
+                auto_show = true;
+                auto_show_delay_ms = 300;
+              };
+      
+              ghost_text.enabled = true;
+            };
+            signature.enabled = true;
+          };
+        };
+
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
@@ -75,6 +112,14 @@
         languages = {
 
           nix = {
+            enable = true;
+            lsp.enable = true;
+          };
+          go= {
+            enable = true;
+            lsp.enable = true;
+          };
+          python = {
             enable = true;
             lsp.enable = true;
           };
