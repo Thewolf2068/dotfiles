@@ -34,7 +34,10 @@
     wlr-randr
     fzf
     bat
-  ];
+    btop
+    cava
+    localsend
+];
 
   home.sessionVariables = {
     EDITOR = "nvim";
