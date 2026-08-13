@@ -17,6 +17,7 @@
     # Monitors
 
     monitorrule=name:^HEADLESS-.*$,width:2560,height:1440,refresh:60,x:1920,y:0,scale:1,rr:0,vrr:0
+    monitorrule=name:eDP-1,width:1920,height:1200,refresh:60,scale:1,vrr:1
     # =============================================================================
     # Visuals: Transparency, Blur & Animations
     # =============================================================================

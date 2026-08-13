@@ -38,6 +38,7 @@
     cava
     localsend
     obsidian
+    opencode
 ];
 
   home.sessionVariables = {

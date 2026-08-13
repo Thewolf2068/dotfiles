@@ -24,10 +24,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "amdgpu.dcdebugmask=0x400"
-      "amdgpu.psr=0"
-  ];
+  # boot.kernelParams = [
+  #   "amdgpu.dcdebugmask=0x400"
+  #     "amdgpu.psr=0"
+  # ];
 
   networking.hostName = "thinkpadofmiquella";
   networking.wireless.enable = true;
