@@ -37,7 +37,7 @@
     btop
     cava
     localsend
-    joplin
+    trilium-desktop
 ];
 
   home.sessionVariables = {
