@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.waybar = {
@@ -346,7 +346,7 @@
       Description = "Waybar";
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
     Service = {
       ExecStart = "/usr/bin/env waybar";

@@ -15,6 +15,7 @@
   # Sunshine for game streaming
   services.sunshine = {
     enable = true;
+    openFirewall = true;
     applications = {
       apps = [
         {
