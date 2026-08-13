@@ -1,7 +1,8 @@
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/networking.nix
     ../../modules/system/keyd.nix
     ../../modules/system/audio.nix
     ../../modules/system/desktop.nix
@@ -24,14 +25,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelParams = [
-  #   "amdgpu.dcdebugmask=0x400"
-  #     "amdgpu.psr=0"
-  # ];
+  
+  # For dock
+  services.hardware.bolt.enable = true;
 
   networking.hostName = "thinkpadofmiquella";
   networking.wireless.enable = true;
-  networking.networkmanager.enable = true;
 
 
   nix.gc = {

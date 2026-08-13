@@ -39,6 +39,7 @@
     localsend
     obsidian
     opencode
+    networkmanagerapplet
 ];
 
   home.sessionVariables = {

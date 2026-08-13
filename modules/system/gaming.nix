@@ -21,7 +21,7 @@
         {
           name = "Steam";
           detached = [
-            "/usr/bin/env gamescope -e -H 1440 -W 2560 -- /usr/bin/env steam -gamepadui"
+            "${pkgs.gamescope}/usr/bin/gamescope -e -H 1440 -W 2560 -r 144 -- ${pkgs.steam}/usr/bin/steam -gamepadui"
           ];
           prep-cmd = [
             {
@@ -36,6 +36,8 @@
       ];
     };
   };
+
+
 
         
 
