@@ -37,6 +37,7 @@
     btop
     cava
     localsend
+    joplin
 ];
 
   home.sessionVariables = {
