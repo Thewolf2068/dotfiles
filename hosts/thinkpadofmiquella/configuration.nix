@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/system/common.nix
     ../../modules/system/networking.nix
     ../../modules/system/keyd.nix
     ../../modules/system/audio.nix
