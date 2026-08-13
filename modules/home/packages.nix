@@ -37,7 +37,7 @@
     btop
     cava
     localsend
-    trilium-desktop
+    obsidian
 ];
 
   home.sessionVariables = {
