@@ -13,6 +13,10 @@
     tagrule=id:7,layout_name:dwindle
     tagrule=id:8,layout_name:dwindle
     tagrule=id:9,layout_name:dwindle
+
+    # Monitors
+
+    monitorrule=name:^HEADLESS-.*$,width:2560,height:1440,refresh:60,x:1920,y:0,scale:1,rr:0,vrr:0
     # =============================================================================
     # Visuals: Transparency, Blur & Animations
     # =============================================================================
@@ -79,7 +83,7 @@
     windowrule=tags:7,appid:vesktop
     windowrule=tags:8,appid:kitty
     windowrule=tags:9,appid:steam
-    windowrule=tags:9,appid:gamescope
+    windowrule=tags:9,appid:gamescope,isfullscreen:1
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================

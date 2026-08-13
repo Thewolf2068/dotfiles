@@ -19,12 +19,18 @@
       apps = [
         {
           name = "Steam";
+          detached = [
+            "/usr/bin/env gamescope -e -H 1440 -W 2560 -- /usr/bin/env steam -gamepadui"
+          ];
           prep-cmd = [
+            {
+              do = "${../home/scripts/headless_toggle.sh}";
+              undo = "${../home/scripts/headless_toggle.sh}";
+            }
             {
               do = "steam -shutdown";
             }
           ];
-          cmd = "steam";
         }
       ];
     };

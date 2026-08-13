@@ -31,6 +31,7 @@
       pygobject3
     ]))
     gobject-introspection
+    wlr-randr
   ];
 
   home.sessionVariables = {
