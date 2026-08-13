@@ -12,8 +12,7 @@
         "margin-left" = 5;
         "margin-right" = 5;
         "margin-bottom" = 5;
-        reload_style_on_change = true;
-        layer = "top";
+        reload_style_on_change = true; layer = "top";
 
         # Modules Layout
         modules-left = [
@@ -75,7 +74,7 @@
 
         "custom/power" = {
           format = "󰤆";
-          "on-click" = "$HOME/.config/sway/scripts/fuzzel/powermenu.sh";
+          "on-click" = "${./scripts/fuzzel/powermenu.sh}";
           tooltip = false;
         };
 

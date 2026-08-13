@@ -12,11 +12,11 @@ SELECTION=$(echo -e "󰌾 Lock\n󰍃 Logout\n󰜉 Reboot\n󰐥 Shutdown" | fuzze
 
 case "$SELECTION" in
     "󰌾 Lock")
-        hyprlock ;;
+        /usr/bin/env swaylock ;;
     "󰍃 Logout")
-        confirm "Logout" && swaymsg exit ;;
+        confirm "Logout" && /usr/bin/env mmsg dispatch quit ;;
     "󰜉 Reboot")
-        confirm "Reboot" && systemctl reboot ;;
+        confirm "Reboot" && /usr/bin/env systemctl reboot ;;
     "󰐥 Shutdown")
-        confirm "Shutdown" && systemctl poweroff ;;
+        confirm "Shutdown" && /usr/bin/env systemctl poweroff ;;
 esac

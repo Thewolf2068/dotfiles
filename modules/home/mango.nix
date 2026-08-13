@@ -29,10 +29,13 @@
     # =============================================================================
     # Startup Applications
     # =============================================================================
+    exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    exec-once=systemctl --user start mango-session.target
     exec-once=swaybg -m fill -i ${./images/wallpapers/mifulu/5.png}
     exec-once=swayosd-server
     exec-once=swaync
     exec-once=zen-beta
+    exec-once=spotify
 
     # =============================================================================
     # Base Keybindings (Default Mode)
@@ -71,11 +74,12 @@
     # =============================================================================
     windowrule=tags:4,appid:zen-beta
     windowrule=tags:5,appid:dev.zed.Zed
-    windowrule=tags:6,appid:spotify
+    windowrule=tags:6,appid:Spotify
     windowrule=tags:7,appid:signal
     windowrule=tags:7,appid:vesktop
     windowrule=tags:8,appid:kitty
     windowrule=tags:9,appid:steam
+    windowrule=tags:9,appid:gamescope
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================
@@ -105,6 +109,15 @@
     bind=SHIFT,G,spawn_shell,mmsg dispatch tag,9 && mmsg dispatch setkeymode,default
     keymode=default
   '';
+
+  systemd.user.targets.mango-session = {
+    Unit = {
+      Description = "mango compositor session";
+      BindsTo = [ "graphical-session.target" ];
+      Wants = [ "graphical-session-pre.target" ];
+      After = [ "graphical-session-pre.target" ];
+    };
+  };
 }
 
 

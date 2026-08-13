@@ -8,15 +8,11 @@ confirm() {
 }
 
 # Main Selection
-SELECTION=$(echo -e "󰌾 Lock\n󰍃 Logout\n󰜉 Reboot\n󰐥 Shutdown" | fuzzel --dmenu --minimal-lines --hide-prompt --no-exit-on-keyboard-focus-loss --width 14)
+SELECTION=$(echo -e "󰜉 Reboot\n󰐥 Shutdown" | fuzzel --dmenu --minimal-lines --hide-prompt --no-exit-on-keyboard-focus-loss --width 14)
 
 case "$SELECTION" in
-    "󰌾 Lock")
-        hyprlock ;;
-    "󰍃 Logout")
-        confirm "Logout" && swaymsg exit ;;
     "󰜉 Reboot")
-        confirm "Reboot" && systemctl reboot ;;
+        confirm "Reboot" && /usr/bin/env systemctl reboot ;;
     "󰐥 Shutdown")
-        confirm "Shutdown" && systemctl poweroff ;;
+        confirm "Shutdown" && /usr/bin/env systemctl poweroff ;;
 esac

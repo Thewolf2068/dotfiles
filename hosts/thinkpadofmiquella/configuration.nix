@@ -32,6 +32,8 @@
   networking.hostName = "thinkpadofmiquella";
   networking.wireless.enable = true;
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
+
 
   nix.gc = {
     automatic = true;
