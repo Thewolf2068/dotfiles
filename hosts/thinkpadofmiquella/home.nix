@@ -12,7 +12,6 @@
     ../../modules/home/swaync.nix
     ../../modules/home/fastfetch.nix
     ../../modules/home/zsh.nix
-    # ../../modules/home/river.nix
     ../../modules/home/mango.nix
     ../../modules/home/swaylock.nix
     ../../modules/home/spotify.nix

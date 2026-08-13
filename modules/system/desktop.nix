@@ -27,8 +27,7 @@
       package = pkgs.kdePackages.sddm;
       extraPackages = with pkgs; [ kdePackages.qtmultimedia ];
     };
-    sessionPackages = [ pkgs.river ];
-    defaultSession = "sway";
+    defaultSession = "mango";
   };
 
   environment.systemPackages = [
