@@ -42,7 +42,7 @@
           return-type = "json";
           escape = true;
           "hide-empty-text" = true;
-          "on-click" = "swayosd-client --player 'Feishin'  --playerctl play-pause";
+          "on-click" = "/usr/bin/env swayosd-client --player 'spotify'  --playerctl play-pause";
           exec = "/usr/bin/env python3 ${./scripts/waybar/mediaplayer.py} --player spotify 2> /dev/null";
         };
 
@@ -239,7 +239,7 @@
           transition: all 0.15s ease;
       }
 
-      #workspaces button.focused {
+      #workspaces button.active {
           box-shadow: inset 0 -2px @mauve;
           color: @mauve;
       }

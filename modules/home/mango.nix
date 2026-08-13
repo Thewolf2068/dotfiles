@@ -1,6 +1,18 @@
-{ pkgs, ... }:
+{ ... }:
 {
   xdg.configFile."mango/config.conf".text = ''
+    # Layout settings
+    default_layout=dwindle
+
+    tagrule=id:1,layout_name:scroller
+    tagrule=id:2,layout_name:scroller
+    tagrule=id:3,layout_name:scroller
+    tagrule=id:4,layout_name:dwindle
+    tagrule=id:5,layout_name:dwindle
+    tagrule=id:6,layout_name:dwindle
+    tagrule=id:7,layout_name:dwindle
+    tagrule=id:8,layout_name:dwindle
+    tagrule=id:9,layout_name:dwindle
     # =============================================================================
     # Visuals: Transparency, Blur & Animations
     # =============================================================================
@@ -20,12 +32,8 @@
     exec-once=swaybg -m fill -i ${./images/wallpapers/mifulu/5.png}
     exec-once=swayosd-server
     exec-once=swaync
+    exec-once=zen-beta
 
-    # Secret Workspaces
-
-    scratchpad_cross_monitor=1
-    windowrule=isnamedscratchpad:1,appid:Spotify
-    bind=SUPER,S,toggle_named_scratchpad,Spotify,none,spotify
     # =============================================================================
     # Base Keybindings (Default Mode)
     # =============================================================================
@@ -63,7 +71,7 @@
     # =============================================================================
     windowrule=tags:4,appid:zen-beta
     windowrule=tags:5,appid:dev.zed.Zed
-    windowrule=tags:6,appid:feishin
+    windowrule=tags:6,appid:spotify
     windowrule=tags:7,appid:signal
     windowrule=tags:7,appid:vesktop
     windowrule=tags:8,appid:kitty

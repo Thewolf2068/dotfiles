@@ -12,7 +12,7 @@ in
   };
   services.swayidle = {
     enable = true;
-    systemdTarget = "mango-session.target";
+    systemdTargets = "mango-session.target";
     events = [
       { event = "before-sleep"; command = swaylockSleep; }
       { event = "lock"; command = swaylockIdle; }

@@ -18,6 +18,7 @@ let
 in
 {
   home.pointerCursor = {
+    enable = true;
     package = breezeXBlack;
     name = "BreezeX-Black";
     size = 24;

@@ -8,7 +8,6 @@
     fuzzel
     tree
     wl-clipboard
-    amberol
     inputs.zen-browser.packages."${pkgs.system}".default
     swaybg
     vesktop
