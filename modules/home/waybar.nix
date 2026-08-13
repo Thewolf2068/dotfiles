@@ -22,8 +22,7 @@
         ];
         
         modules-center = [
-          # "custom/media"
-	  # "river/window"
+          "custom/media"
         ];
         
         modules-right = [
@@ -44,7 +43,7 @@
           escape = true;
           "hide-empty-text" = true;
           "on-click" = "swayosd-client --player 'Feishin'  --playerctl play-pause";
-          exec = "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py --player Feishin 2> /dev/null";
+          exec = "/usr/bin/env python3 ${./scripts/waybar/mediaplayer.py} --player spotify 2> /dev/null";
         };
 
         bluetooth = {
@@ -355,6 +354,9 @@
       ExecStartPre = "/usr/bin/env sleep 2";
       Restart = "on-failure";
     };
+    Service.Environment = [
+      "GI_TYPELIB_PATH=${pkgs.playerctl}/lib/girepository-1.0"
+    ];
   };
 
 }

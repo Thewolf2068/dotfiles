@@ -33,6 +33,10 @@
                 "select_prev"
                 "fallback"
               ];
+              "<C-l>" = [
+                "accept"
+                "fallback"
+              ];
             };
       
             sources.default = [

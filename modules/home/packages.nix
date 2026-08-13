@@ -27,7 +27,15 @@
     swaylock-effects
     jq
     eza
+    playerctl
+    (pkgs.python3.withPackages (ps: with ps; [
+      pygobject3
+    ]))
+    gobject-introspection
   ];
 
-  home.sessionVariables.EDITOR = "nvim";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    GI_TYPELIB_PATH = "${pkgs.playerctl}/lib/girepository-1.0";
+  };
 }
