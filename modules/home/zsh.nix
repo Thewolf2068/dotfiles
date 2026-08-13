@@ -14,12 +14,14 @@
       "la" = "eza -a --icons --color=always --group-directories-first";
       "l" = "eza -lF --icons --color=always --group-directories-first";
       "vi" = "nvim";
+      "cat" = "bat";
     };
     initContent = ''
       fastfetch
       set -o emacs
       bindkey "^[[1;5D" backward-word
       bindkey "^[[1;5C" forward-word
+      bindkey "^[[3~" delete-char
       '';
   };
 

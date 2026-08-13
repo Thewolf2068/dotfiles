@@ -77,13 +77,12 @@
     # Window Rules (Auto-Assigning Apps to Tags via 'tags:')
     # =============================================================================
     windowrule=tags:4,appid:zen-beta
-    windowrule=tags:5,appid:dev.zed.Zed
-    windowrule=tags:6,appid:Spotify
-    windowrule=tags:7,appid:signal
-    windowrule=tags:7,appid:vesktop
-    windowrule=tags:8,appid:kitty
-    windowrule=tags:9,appid:steam
-    windowrule=tags:9,appid:gamescope,isfullscreen:1
+    windowrule=tags:5,appid:Spotify
+    windowrule=tags:6,appid:signal
+    windowrule=tags:6,appid:vesktop
+    windowrule=tags:7,appid:kitty
+    windowrule=tags:8,appid:steam
+    windowrule=tags:8,appid:gamescope,isfullscreen:1
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================
@@ -96,21 +95,19 @@
     bind=NONE,2,spawn_shell,mmsg dispatch view,2 && mmsg dispatch setkeymode,default
     bind=NONE,3,spawn_shell,mmsg dispatch view,3 && mmsg dispatch setkeymode,default
     bind=NONE,b,spawn_shell,mmsg dispatch view,4 && mmsg dispatch setkeymode,default
-    bind=NONE,c,spawn_shell,mmsg dispatch view,5 && mmsg dispatch setkeymode,default
-    bind=NONE,s,spawn_shell,mmsg dispatch view,6 && mmsg dispatch setkeymode,default
-    bind=NONE,d,spawn_shell,mmsg dispatch view,7 && mmsg dispatch setkeymode,default
-    bind=NONE,k,spawn_shell,mmsg dispatch view,8 && mmsg dispatch setkeymode,default
-    bind=NONE,g,spawn_shell,mmsg dispatch view,9 && mmsg dispatch setkeymode,default
+    bind=NONE,s,spawn_shell,mmsg dispatch view,5 && mmsg dispatch setkeymode,default
+    bind=NONE,d,spawn_shell,mmsg dispatch view,6 && mmsg dispatch setkeymode,default
+    bind=NONE,k,spawn_shell,mmsg dispatch view,7 && mmsg dispatch setkeymode,default
+    bind=NONE,g,spawn_shell,mmsg dispatch view,8 && mmsg dispatch setkeymode,default
     # Move Focused Window to Tag & Reset Mode
     bind=SHIFT,1,spawn_shell,mmsg dispatch tag,1 && mmsg dispatch setkeymode,default
     bind=SHIFT,2,spawn_shell,mmsg dispatch tag,2 && mmsg dispatch setkeymode,default
     bind=SHIFT,3,spawn_shell,mmsg dispatch tag,3 && mmsg dispatch setkeymode,default
     bind=SHIFT,B,spawn_shell,mmsg dispatch tag,4 && mmsg dispatch setkeymode,default
-    bind=SHIFT,C,spawn_shell,mmsg dispatch tag,5 && mmsg dispatch setkeymode,default
-    bind=SHIFT,S,spawn_shell,mmsg dispatch tag,6 && mmsg dispatch setkeymode,default
-    bind=SHIFT,D,spawn_shell,mmsg dispatch tag,7 && mmsg dispatch setkeymode,default
-    bind=SHIFT,K,spawn_shell,mmsg dispatch tag,8 && mmsg dispatch setkeymode,default
-    bind=SHIFT,G,spawn_shell,mmsg dispatch tag,9 && mmsg dispatch setkeymode,default
+    bind=SHIFT,S,spawn_shell,mmsg dispatch tag,5 && mmsg dispatch setkeymode,default
+    bind=SHIFT,D,spawn_shell,mmsg dispatch tag,6 && mmsg dispatch setkeymode,default
+    bind=SHIFT,K,spawn_shell,mmsg dispatch tag,7 && mmsg dispatch setkeymode,default
+    bind=SHIFT,G,spawn_shell,mmsg dispatch tag,8 && mmsg dispatch setkeymode,default
     keymode=default
   '';
 

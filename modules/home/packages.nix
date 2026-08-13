@@ -32,6 +32,8 @@
     ]))
     gobject-introspection
     wlr-randr
+    fzf
+    bat
   ];
 
   home.sessionVariables = {
