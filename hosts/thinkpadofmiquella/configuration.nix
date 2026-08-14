@@ -14,7 +14,17 @@
     ../../modules/system/packages.nix
   ];
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings.General = {
+      AutoConnectTimeout = 30;
+      ReconnectAttempts = 7;
+      ReconnectIntervals = "1,2,4,8,16,32,64";
+    };
+  };
+
+  services.blueman.enable = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

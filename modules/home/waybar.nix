@@ -52,7 +52,7 @@
           "tooltip-format" = "{controller_alias}\t{controller_address}";
           "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
           "tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
-          "on-click" = "$HOME/.config/sway/scripts/fuzzel/bluetooth_menu.sh";
+          "on-click" = "${pkgs.blueman}/bin/blueman";
         };
 
         "group/volume" = {
@@ -158,7 +158,7 @@
           "tooltip-format-ethernet" = "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\n󰇚 {bandwidthDownBytes} | 󰕒 {bandwidthUpBytes}";
           "tooltip-format-disconnected" = "No network connection";
           "max-length" = 10;
-          "on-click" = "$HOME/.config/sway/scripts/fuzzel/network_manager.sh";
+          "on-click" = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
       };
     };

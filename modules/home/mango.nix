@@ -84,6 +84,9 @@
     windowrule=tags:7,appid:kitty
     windowrule=tags:8,appid:steam
     windowrule=tags:8,appid:gamescope,isfullscreen:1
+
+    windowrule=isfloating:1,appid:blueman-manager
+    windowrule=isfloating:1,appid:nm-connection-editor
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================
