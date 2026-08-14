@@ -40,6 +40,7 @@
     obsidian
     opencode
     networkmanagerapplet
+    pavucontrol
 ];
 
   home.sessionVariables = {

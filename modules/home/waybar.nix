@@ -125,8 +125,8 @@
           "format-icons" = {
             default = [ " " " " ];
           };
-          "on-click" = "pavucontrol";
-          "on-click-right" = "pactl -- set-sink-volume 0 100%";
+          "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
+          "on-click-right" = "${pkgs.pulseaudio}/bin/pactl -- set-sink-volume 0 100%";
         };
 
         clock = {
