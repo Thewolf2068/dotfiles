@@ -2,15 +2,13 @@
 {
   xdg.configFile."mango/config.conf".text = ''
     # Layout settings
-    default_layout=dwindle
-
     tagrule=id:1,layout_name:scroller
     tagrule=id:2,layout_name:scroller
     tagrule=id:3,layout_name:scroller
     tagrule=id:4,layout_name:dwindle
     tagrule=id:5,layout_name:dwindle
     tagrule=id:6,layout_name:dwindle
-    tagrule=id:7,layout_name:dwindle
+    tagrule=id:7,layout_name:scroller
     tagrule=id:8,layout_name:dwindle
     tagrule=id:9,layout_name:dwindle
 
@@ -43,6 +41,13 @@
     exec-once=spotify
 
     # =============================================================================
+    # Hotarea config
+    # =============================================================================
+
+    enable_hotarea=1
+    hotarea_corner=0
+
+    # =============================================================================
     # Base Keybindings (Default Mode)
     # =============================================================================
 
@@ -55,7 +60,8 @@
     bind=SUPER,Q,spawn,kitty
     bind=SUPER,D,spawn,fuzzel
     bind=SUPER,C,killclient
-    bind=SUPER,F,togglefullscreen
+    bind=SUPER,F,togglemaximizescreen
+    bind=SUPER+SHIFT,F,togglefullescreen
     bind=SUPER,T,togglefloating
     bind=SUPER,N,spawn,swaync-client -t
     bind=SUPER+SHIFT,R,reload_config
@@ -74,6 +80,9 @@
     bind=NONE,XF86AudioLowerVolume,spawn,swayosd-client --output-volume lower --max-volume 100
     bind=NONE,XF86MonBrightnessUp,spawn,swayosd-client --brightness +5
     bind=NONE,XF86MonBrightnessDown,spawn,swayosd-client --brightness -5
+    # Window Resizing
+    bind=SUPER,code:20,resizewin,-50,0
+    bind=SUPER,code:21,resizewin,+50,0
     # =============================================================================
     # Window Rules (Auto-Assigning Apps to Tags via 'tags:')
     # =============================================================================

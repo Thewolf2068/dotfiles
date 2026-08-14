@@ -41,6 +41,7 @@
     opencode
     networkmanagerapplet
     pavucontrol
+    wev
 ];
 
   home.sessionVariables = {

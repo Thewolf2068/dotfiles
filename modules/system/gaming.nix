@@ -49,5 +49,6 @@
     protonplus
     lutris
     heroic
+    prism-launcher
   ];
 }

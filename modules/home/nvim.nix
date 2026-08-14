@@ -22,7 +22,8 @@
       
           setupOpts = {
             keymap = {
-              preset = "default";
+              # preset = "default";
+
       
               "<C-j>" = [
                 "select_next"
