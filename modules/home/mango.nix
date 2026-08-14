@@ -87,6 +87,7 @@
 
     windowrule=isfloating:1,appid:blueman-manager
     windowrule=isfloating:1,appid:nm-connection-editor
+    windowrule=isfloating:1,appid:org.pulseaudio.pavucontrol
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================
