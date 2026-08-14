@@ -61,7 +61,7 @@
     bind=SUPER,D,spawn,fuzzel
     bind=SUPER,C,killclient
     bind=SUPER,F,togglemaximizescreen
-    bind=SUPER+SHIFT,F,togglefullescreen
+    bind=SUPER+SHIFT,F,togglefullscreen
     bind=SUPER,T,togglefloating
     bind=SUPER,N,spawn,swaync-client -t
     bind=SUPER+SHIFT,R,reload_config
@@ -93,10 +93,12 @@
     windowrule=tags:7,appid:kitty
     windowrule=tags:8,appid:steam
     windowrule=tags:8,appid:gamescope,isfullscreen:1
+    windowrule=tags:8,appid:org.prismlauncher.PrismLauncher
 
     windowrule=isfloating:1,appid:blueman-manager
     windowrule=isfloating:1,appid:nm-connection-editor
     windowrule=isfloating:1,appid:org.pulseaudio.pavucontrol
+
     # =============================================================================
     # Submap: "Summon" Mode
     # =============================================================================
