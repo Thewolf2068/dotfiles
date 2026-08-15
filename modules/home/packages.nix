@@ -42,6 +42,7 @@
     networkmanagerapplet
     pavucontrol
     wev
+    tealdeer
 ];
 
   home.sessionVariables = {
