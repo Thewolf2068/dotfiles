@@ -37,9 +37,16 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "amdgpu.ppfeaturemask=0xffffffff"
+    ];
+  };
+
+
 
 # For dock
   services.hardware.bolt.enable = true;

@@ -172,7 +172,7 @@
        * -------------------------------------------------------------------------- */
       * {
           border: none;
-          border-radius: 0;
+          border-radius: 5;
           font-family: "FiraCode Nerd", "Sofia Pro", sans-serif, FontAwesome;
           font-size: 15px;
           min-height: 0;
@@ -238,6 +238,7 @@
       }
 
       #workspaces button.active {
+          border-radius: 0;
           box-shadow: inset 0 -2px @mauve;
           color: @mauve;
       }

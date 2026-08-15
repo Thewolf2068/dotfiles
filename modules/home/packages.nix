@@ -43,6 +43,7 @@
     pavucontrol
     wev
     tealdeer
+    kdePackages.kate
 ];
 
   home.sessionVariables = {

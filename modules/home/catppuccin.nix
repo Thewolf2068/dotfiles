@@ -23,6 +23,18 @@
 
   # GTK
   gtk = {
+    gtk4 = {
+      enable = true;
+      theme = {
+        name = "catppuccin-mocha-mauve-standard";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "mauve" ];
+          size = "standard";
+          tweaks = [ ];
+          variant = "mocha";
+        };
+      };
+    };
     enable = true;
     theme = {
       name = "catppuccin-mocha-mauve-standard";
