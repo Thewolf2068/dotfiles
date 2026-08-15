@@ -21,5 +21,6 @@
     ../../modules/home/cursor.nix
     ../../modules/home/git.nix
     ../../modules/home/mangohud.nix
+    ../../modules/home/discord.nix
   ];
 }

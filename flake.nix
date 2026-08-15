@@ -41,10 +41,15 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
     };
+
+    # Neovim
     nvf = {
       url = "github:notashelf/nvf"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Discord configuration
+    nixcord.url = "github:4evy/nixcord";
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, ... }@inputs: {

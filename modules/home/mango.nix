@@ -89,7 +89,7 @@
     windowrule=tags:4,appid:zen-beta
     windowrule=tags:5,appid:Spotify
     windowrule=tags:6,appid:signal
-    windowrule=tags:6,appid:vesktop
+    windowrule=tags:6,appid:discord
     windowrule=tags:7,appid:kitty
     windowrule=tags:8,appid:steam
     windowrule=tags:8,appid:gamescope,isfullscreen:1

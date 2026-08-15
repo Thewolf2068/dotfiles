@@ -10,7 +10,7 @@
     wl-clipboard
     inputs.zen-browser.packages."${pkgs.system}".default
     swaybg
-    vesktop
+    # discord
     signal-desktop
     zed-editor
     swaynotificationcenter
