@@ -39,6 +39,8 @@
     exec-once=swaync
     exec-once=zen-beta
     exec-once=spotify
+    exec-once=discord
+    exec-once=steam
 
     # =============================================================================
     # Hotarea config
