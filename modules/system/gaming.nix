@@ -50,5 +50,7 @@
     lutris
     heroic
     prismlauncher
+    limo
+    deadlock-mod-manager
   ];
 }
