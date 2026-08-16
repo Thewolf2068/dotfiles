@@ -88,7 +88,7 @@
     # =============================================================================
     # Window Rules (Auto-Assigning Apps to Tags via 'tags:')
     # =============================================================================
-    windowrule=tags:4,appid:zen-beta
+    windowrule=tags:4,focused_opacity:0.8,focused_opacity:0.75,appid:zen-beta
     windowrule=tags:5,appid:Spotify
     windowrule=tags:6,appid:signal
     windowrule=tags:6,appid:discord

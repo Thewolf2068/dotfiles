@@ -1,0 +1,48 @@
+{ inputs, pkgs, ... }:
+
+{
+  imports = [ inputs.zen-browser.homeModules.beta ];
+
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+
+    policies = {
+      OfferToSaveLogins = false;
+    };
+
+    profiles.default = {
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+        "zen.workspaces.continue-where-left-off" = true;
+        "browser.startup.page" = 3;
+        "widget.transparent-windows" = false;
+      };
+
+      presets = {
+        catppuccin = {
+          enable = true;
+          flavor = "Mocha";
+          accent = "Mauve";
+        };
+
+        betterfox.enable = true;
+        arkenfox.enable = true;
+      };
+
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          onepassword-password-manager
+          stylus
+          imagus
+          return-youtube-dislikes
+          vimium
+          stylus
+          youtube-shorts-block
+          proton-vpn
+        ];
+      };
+    };
+  };
+}

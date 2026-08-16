@@ -3,7 +3,6 @@
   home.username = "malenia";
   home.homeDirectory = "/home/malenia";
   home.stateVersion = "26.05"; # match your nixos-version
-
   imports = [
     ../../modules/home/packages.nix
     ../../modules/home/catppuccin.nix
@@ -22,5 +21,6 @@
     ../../modules/home/git.nix
     ../../modules/home/mangohud.nix
     ../../modules/home/discord.nix
+    ../../modules/home/zen-browser.nix
   ];
 }

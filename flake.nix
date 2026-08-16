@@ -50,9 +50,15 @@
 
     # Discord configuration
     nixcord.url = "github:4evy/nixcord";
+
+    # Firefox/zen browser extensions
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, ... }@inputs: {
     nixosConfigurations.thinkpadofmiquella = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -60,6 +66,7 @@
         # Overlays: kotofetch + waybar (built with mango workspaces + cava support)
         ({ config, pkgs, ... }: {
           nixpkgs.overlays = [
+            inputs.nur.overlays.default
             (final: prev: {
               kotofetch = final.callPackage kotofetch-src { };
             })
@@ -81,6 +88,7 @@
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.config.allowUnfree = true;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit inputs; };
