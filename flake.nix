@@ -25,6 +25,13 @@
       };
     };
 
+    # Firefox/zen browser extensions
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     # Kotofetch (non-flake source)
     kotofetch-src = {
       url = "github:hxpe-dev/kotofetch";
@@ -50,12 +57,6 @@
 
     # Discord configuration
     nixcord.url = "github:4evy/nixcord";
-
-    # Firefox/zen browser extensions
-    nur = {
-      url = "github:nix-community/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, ... }@inputs: {
@@ -83,7 +84,6 @@
             })
           ];
         })
-
         ./hosts/thinkpadofmiquella/configuration.nix
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
