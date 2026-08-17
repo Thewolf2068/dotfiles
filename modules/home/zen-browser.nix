@@ -17,6 +17,8 @@
         "zen.workspaces.continue-where-left-off" = true;
         "browser.startup.page" = 3;
         "widget.transparent-windows" = false;
+        "browser.search.suggest.enabled" = true;
+        "browser.urlbar.suggest.searches" = true;
       };
 
       presets = {

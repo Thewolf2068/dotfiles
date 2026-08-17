@@ -44,6 +44,7 @@
     wev
     tealdeer
     supertuxkart
+    universal-android-debloater
 ];
 
   home.sessionVariables = {
