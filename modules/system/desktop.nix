@@ -36,10 +36,6 @@
       extraPackages = with pkgs; [ kdePackages.qtmultimedia ];
     };
     defaultSession = "mango";
-    autoLogin = {
-      enable = true;
-      user = "malenia";
-    };
   };
 
   environment.systemPackages = [

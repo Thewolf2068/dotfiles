@@ -28,8 +28,6 @@
           accent = "Mauve";
         };
 
-        betterfox.enable = true;
-        arkenfox.enable = true;
       };
 
       extensions = {

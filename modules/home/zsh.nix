@@ -22,7 +22,7 @@
       bindkey "^[[1;5D" backward-word
       bindkey "^[[1;5C" forward-word
       bindkey "^[[3~" delete-char
-      bindkey -s "^L" "\clear^M"
+      bindkey -s "^L" "^Mclear^M"
       '';
   };
 
