@@ -9,7 +9,7 @@
     tagrule=id:5,layout_name:dwindle
     tagrule=id:6,layout_name:dwindle
     tagrule=id:7,layout_name:scroller
-    tagrule=id:8,layout_name:dwindle
+    tagrule=id:8,layout_name:scroller
     tagrule=id:9,layout_name:dwindle
 
     # Monitors
@@ -39,8 +39,7 @@
     exec-once=swaync
     exec-once=zen-beta
     exec-once=spotify
-    exec-once=discord
-    exec-once=steam
+    exec-once=nm-applet
 
     # =============================================================================
     # Hotarea config

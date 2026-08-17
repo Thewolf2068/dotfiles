@@ -28,7 +28,7 @@
           "custom/headsetVolume"
           "tray"
           "bluetooth"
-          "network"
+          # "network"
           "clock"
           "battery"
           "group/volume"
