@@ -12,6 +12,7 @@
       ../../modules/system/fonts.nix
       ../../modules/system/gaming.nix
       ../../modules/system/packages.nix
+      ../../modules/system/virtualization.nix
   ];
 
   hardware.bluetooth = {
@@ -55,6 +56,8 @@
   networking.wireless.enable = true;
 
 
+# Ensure libvirtd is enabled for virt-manager
+virtualisation.libvirtd.enable = true;
   nix.gc = {
     automatic = true;
     dates = "daily";

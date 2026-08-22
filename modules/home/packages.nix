@@ -44,7 +44,8 @@
     wev
     tealdeer
     supertuxkart
-];
+    clipse
+  ];
 
   home.sessionVariables = {
     EDITOR = "nvim";

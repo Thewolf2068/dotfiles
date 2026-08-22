@@ -40,6 +40,7 @@
     exec-once=zen-beta
     exec-once=spotify
     exec-once=nm-applet
+    exec-once=clipse -listen
 
     # =============================================================================
     # Hotarea config
@@ -66,6 +67,7 @@
     bind=SUPER,T,togglefloating
     bind=SUPER,N,spawn,swaync-client -t
     bind=SUPER+SHIFT,R,reload_config
+    bind=SUPER,V,spawn,kitty --class clipse -e clipse 
     # Vim Focus Navigation
     bind=SUPER,H,focusdir,left
     bind=SUPER,J,focusdir,down
@@ -95,10 +97,14 @@
     windowrule=tags:8,appid:steam
     windowrule=tags:8,appid:gamescope,isfullscreen:1
     windowrule=tags:8,appid:org.prismlauncher.PrismLauncher
+    windowrule=tags:8,appid:io.github.Faugus.faugus-launcher
+    windowrule=tags:8,appid:heroic
 
     windowrule=isfloating:1,appid:blueman-manager
     windowrule=isfloating:1,appid:nm-connection-editor
     windowrule=isfloating:1,appid:org.pulseaudio.pavucontrol
+    windowrule=isfloating:1,appid:clipse,width:0.3,height:0.6
+
 
     # =============================================================================
     # Submap: "Summon" Mode

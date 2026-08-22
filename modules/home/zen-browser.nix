@@ -40,7 +40,7 @@
           vimium
           stylus
           youtube-shorts-block
-          proton-vpn
+          old-reddit-redirect
         ];
       };
     };

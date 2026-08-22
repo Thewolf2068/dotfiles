@@ -52,5 +52,8 @@
     prismlauncher
     limo
     deadlock-mod-manager
+    faugus-launcher
+    sgdboop
+    protonplus
   ];
 }
