@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       border = {
-        radius = 0;
+        radius = 10;
         width = 2;
       };
     };

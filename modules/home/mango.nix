@@ -103,7 +103,7 @@
     windowrule=isfloating:1,appid:blueman-manager
     windowrule=isfloating:1,appid:nm-connection-editor
     windowrule=isfloating:1,appid:org.pulseaudio.pavucontrol
-    windowrule=isfloating:1,appid:clipse,width:0.3,height:0.6
+    windowrule=isfloating:1,appid:clipse,width:0.32,height:0.6,isoverlay:1
 
 
     # =============================================================================
