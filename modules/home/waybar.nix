@@ -17,7 +17,7 @@
         # Modules Layout
         modules-left = [
           "custom/os"
-          "mango/workspaces"
+          "sway/workspaces"
         ];
         
         modules-center = [
@@ -78,8 +78,9 @@
           tooltip = false;
         };
 
-        "mango/workspaces" = {
-          hide-empty = true;
+        "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = false;
           format = "{icon}";
           on-click = "activate";
           format-icons = {
@@ -92,18 +93,6 @@
             "6" = "󱋊 ";
             "7" = " ";
             "8" = "󰊴 ";
-          };
-        };
-
-        "river/window" = {
-          format = "{app_id}";
-          "max-length" = 50;
-          "all-outputs" = true;
-          "offscreen-css" = true;
-          "offscreen-css-text" = "(inactive)";
-          rewrite = {
-            "(.*) - Mozilla Firefox" = " $1";
-            "(.*) - fish" = "> [$1]";
           };
         };
 

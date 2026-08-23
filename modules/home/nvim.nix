@@ -120,6 +120,10 @@
             enable = true;
             lsp.enable = true;
           };
+          bash = {
+            enable = true;
+            lsp.enable = true;
+          };
           go= {
             enable = true;
             lsp.enable = true;

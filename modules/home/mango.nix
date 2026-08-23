@@ -86,6 +86,9 @@
     # Window Resizing
     bind=SUPER,code:20,resizewin,-50,0
     bind=SUPER,code:21,resizewin,+50,0
+    # Back and forth
+    view_current_to_back=1 
+    bind=SUPER,code:23,view,1,0
     # =============================================================================
     # Window Rules (Auto-Assigning Apps to Tags via 'tags:')
     # =============================================================================
