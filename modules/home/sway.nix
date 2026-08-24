@@ -25,8 +25,9 @@ in
       startup = [
         { command = "zen-beta"; }
         { command = "swaymsg create_output HEADLESS-1"; }
-	{ command = "swayosd-server"; }
-	{ command = "swaync"; }
+        { command = "swayosd-server"; }
+        { command = "swaync"; }
+        { command = "sh -c 'protonplus update all; exec steam -silent'"; }
       ];
 
       gaps.inner = 5;
