@@ -108,14 +108,17 @@ in
         };
         "LG Electronics LG ULTRAGEAR 407NTVS68263" = {
           mode = "2560x1440@144Hz";
+          bg = "${./images/wallpapers/mifulu/2.png} fill";
           pos = "2560 0";
         };
         "HKC OVERSEAS LIMITED E2721F 0000000000001" = {
           mode = "2560x1440@100Hz";
+          bg = "${./images/wallpapers/mifulu/7.png} fill";
           pos = "0 0";
         };
         "HEADLESS-1" = {
           mode = "2560x1440@144Hz";
+          bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
           pos = "1000000 0";
           disable = "";
         };
