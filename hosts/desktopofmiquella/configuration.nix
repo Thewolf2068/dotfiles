@@ -15,26 +15,6 @@
       ../../modules/system/virtualization.nix
   ];
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
-      };
-      Policy = {
-        AutoEnable = true;
-      };
-    };
-  };
-
-  services.blueman.enable = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-  services.logind.settings.Login.HandleLidSwitch = "suspend";
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -46,14 +26,9 @@
 
 
 
-# For dock
-  services.hardware.bolt.enable = true;
 
-  networking.hostName = "thinkpadofmiquella";
-  networking.wireless.enable = true;
+  networking.hostName = "desktopofmiquella";
 
-
-# Ensure libvirtd is enabled for virt-manager
 
   system.stateVersion = "26.05";
 }

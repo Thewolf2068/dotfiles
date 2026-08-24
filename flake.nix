@@ -103,5 +103,48 @@
         }
       ];
     };
+    nixosConfigurations.desktopofmiquella= nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        # Overlays: kotofetch + waybar (built with mango workspaces + cava support)
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [
+            inputs.nur.overlays.default
+            (final: prev: {
+              kotofetch = final.callPackage kotofetch-src { };
+            })
+            (final: prev: {
+              waybar = (prev.callPackage "${waybar}/nix/default.nix" {
+                waybar = prev.waybar;
+                version = waybar.shortRev or "dirty";
+              }).overrideAttrs (old: {
+                mesonFlags = (old.mesonFlags or []) ++ [
+                  "-Dcava=enabled"
+                  "-Dmango=true"
+                ];
+              });
+            })
+          ];
+        })
+        ./hosts/thinkpadofmiquella/configuration.nix
+        catppuccin.nixosModules.catppuccin
+        home-manager.nixosModules.home-manager
+        {
+          nixpkgs.config.allowUnfree = true;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.malenia = {
+            imports = [
+              ./hosts/thinkpadofmiquella/home.nix
+              catppuccin.homeModules.catppuccin
+              inputs.spicetify-nix.homeManagerModules.default
+              inputs.nvf.homeManagerModules.default
+            ];
+          };
+        }
+      ];
+    };
   };
 }
