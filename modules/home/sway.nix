@@ -23,10 +23,18 @@ in
       bars = [ ];
 
       startup = [
+<<<<<<< HEAD
       { command = "zen-beta"; }
       { command = "swaymsg create_output HEADLESS-1"; }
       { command = "swayosd-server"; }
       { command = "swaync"; }
+=======
+        { command = "zen-beta"; }
+        { command = "swaymsg create_output HEADLESS-1"; }
+        { command = "swayosd-server"; }
+        { command = "swaync"; }
+        { command = "sh -c 'protonplus update all; exec steam -silent'"; }
+>>>>>>> 35eb84460c352d1d5f3e92256ac3db063aeb2c7a
       ];
 
       gaps.inner = 5;
