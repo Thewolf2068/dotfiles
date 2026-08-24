@@ -23,11 +23,12 @@ in
       bars = [ ];
 
       startup = [
-        { command = "zen-beta"; }
-        { command = "swaymsg create_output HEADLESS-1"; }
-        { command = "swayosd-server"; }
-        { command = "swaync"; }
-        { command = "sh -c 'protonplus update all; exec steam -silent'"; }
+      { command = "zen-beta"; }
+      { command = "swaymsg create_output HEADLESS-1"; }
+      { command = "swayosd-server"; }
+      { command = "swaync"; }
+      { command = "sh -c 'protonplus update all; exec steam -silent'"; }
+      { command = "clipse --listen"; }
       ];
 
       gaps.inner = 5;
@@ -54,7 +55,8 @@ in
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
-        "${modifier}+N" = "exec swaync-client -t";
+        "${modifier}+n" = "exec swaync-client -t";
+        "${modifier}+v" = "exec kitty --class clipse clipse";
 
 # Swayosd shenanigans
         "XF86AudioRaiseVolume" = "exec swayosd-client --output-volume raise --max-volume 100";
@@ -127,23 +129,40 @@ in
       window = {
         titlebar = false;
         border = 2;
+
         commands = [
-        { command = "opacity 0.87"; criteria.app_id = ".*"; }
-        { command = "opacity 0.87"; criteria.class = ".*"; }
+        { 
+          command = "opacity 0.87"; 
+          criteria.app_id = ".*"; 
+        }
+
+        { 
+          command = "opacity 0.87"; 
+          criteria.class = ".*"; 
+        }
+
         {
           command = "fullscreen enable, move container to workspace number 99, workspace number 99";
           criteria.title = "Steam Big Picture Mode";
         }
+
         {
-          command = "fullscreen enable, move container to workspace Games, workspace Games";
+          command = "fullscreen enable, move container to workspace 8, workspace 8";
           criteria.class = "steam_app_*";
         }
+
         {
           command = "floating enable";
           criteria = {
             class = "^steam$";
             title = "^(?!.*Steam).*$";
           };
+        }
+
+        # Clipse popup
+        {
+          command = "floating enable, resize set 622 652, move position center, border pixel 2, sticky enable, focus";
+          criteria.app_id = "clipse";
         }
         ];
       };
