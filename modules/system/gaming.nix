@@ -16,6 +16,9 @@
   services.sunshine = {
     enable = true;
     openFirewall = true;
+    settings = {
+      back_button_timeout = 2000;
+    };
     applications = {
       apps = [
         {
