@@ -25,13 +25,14 @@ in
       startup = [
       { command = "zen-beta"; }
       { command = "swaymsg create_output HEADLESS-1"; }
-      { command = "swayosd-server"; }
-      { command = "swaync"; }
       { command = "sh -c 'protonplus update all; exec steam -silent'"; }
-      { command = "clipse --listen"; }
       ];
 
-      gaps.inner = 5;
+      gaps = {
+        inner = 5;
+        outer = 5;
+      };
+
 
       keybindings = {
         "${modifier}+Q" = "exec ${terminal}";
@@ -55,20 +56,24 @@ in
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
 
-        "${modifier}+n" = "exec swaync-client -t";
-        "${modifier}+v" = "exec kitty --class clipse clipse";
+        "${modifier}+n" = "exec noctalia msg panel-toggle control-center notifications";
+        "${modifier}+v" = "exec noctalia msg panel-toggle clipboard";
+        "${modifier}+Shift+s" = "exec noctalia msg screenshot-region";
 
-        # Swayosd shenanigans
-        "XF86AudioRaiseVolume" = "exec swayosd-client --output-volume raise --max-volume 100";
-        "XF86AudioLowerVolume" = "exec swayosd-client --output-volume lower --max-volume 100";
+        "${modifier}+p" = "exec noctalia msg panel-toggle session";
 
-        "--release Caps_Lock" = "exec swayosd-client --caps-lock";
+        # Media Keys
+        "XF86AudioRaiseVolume" = "exec noctalia msg volume-up";
+        "XF86AudioLowerVolume" = "exec noctalia msg volume-down";
+        "XF86AudioMute" = "exec noctalia msg volume-mute";
 
-        "XF86MonBrightnessUp" = "exec swayosd-client --brightness +5";
-        "XF86MonBrightnessDown" = "exec swayosd-client --brightness -5";
+        "XF86AudioPlay" = "exec playerctl --player=spotify play-pause";
+        "XF86AudioNext" = "exec playerctl --player=spotify next";
 
-        "XF86AudioPlay" = "exec swayosd-client --player \"spotify\" --playerctl play-pause";
-        "XF86AudioNext" = "exec swayosd-client --player \"spotify\" --playerctl next";
+        # Brightness
+        "XF86MonBrightnessUp" = "exec noctalia msg brightness-up";
+        "XF86MonBrightnessDown" = "exec noctalia msg brightness-down";
+
 
 
         # Trigger to switch into the summon mode
@@ -124,11 +129,6 @@ in
           pos = "1000000 0";
           disable = "";
         };
-      };
-
-      input."type:pointer" = {
-        scroll_method = "on_button_down";
-        scroll_button = "BTN_MIDDLE";
       };
 
       window = {

@@ -45,6 +45,10 @@
     tealdeer
     supertuxkart
     clipse
+    wayfreeze
+    grim
+    slurp
+    swappy
   ];
 
   home.sessionVariables = {

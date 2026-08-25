@@ -329,21 +329,21 @@
     '';
   };
 
-  systemd.user.services.waybar= {
-    Unit = {
-      Description = "Waybar";
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "/usr/bin/env waybar";
-      ExecStartPre = "/usr/bin/env sleep 2";
-      Restart = "on-failure";
-    };
-    Service.Environment = [
-      "GI_TYPELIB_PATH=${pkgs.playerctl}/lib/girepository-1.0"
-    ];
-  };
+  # systemd.user.services.waybar= {
+  #   Unit = {
+  #     Description = "Waybar";
+  #   };
+  #   Install = {
+  #     WantedBy = [ "graphical-session.target" ];
+  #   };
+  #   Service = {
+  #     ExecStart = "/usr/bin/env waybar";
+  #     ExecStartPre = "/usr/bin/env sleep 2";
+  #     Restart = "on-failure";
+  #   };
+  #   Service.Environment = [
+  #     "GI_TYPELIB_PATH=${pkgs.playerctl}/lib/girepository-1.0"
+  #   ];
+  # };
 
 }

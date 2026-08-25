@@ -8,6 +8,7 @@
     ../../modules/home/catppuccin.nix
     ../../modules/home/sway.nix
     ../../modules/home/waybar.nix
+    ../../modules/home/noctalia.nix
     ../../modules/home/swaync.nix
     ../../modules/home/fastfetch.nix
     ../../modules/home/zsh.nix

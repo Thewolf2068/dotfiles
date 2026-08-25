@@ -22,7 +22,8 @@
       modules = [
         "break"
         "break"
-        {
+        "break"
+        "break" {
           type = "title";
           keyWidth = 10;
         }
@@ -88,6 +89,8 @@
           key = " ";
           keyColor = "34";
         }
+        "break"
+        "break"
         "break"
       ];
     };

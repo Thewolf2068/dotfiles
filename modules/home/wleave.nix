@@ -5,8 +5,7 @@
     enable = true;
     settings  = {
       margin = 200;
-      buttons-per-row = "1/1";
-      delay-command-ms = 100;
+      buttons-per-row = "2/2";
       close-on-lost-focus = true;
       show-keybinds = true;
       buttons = [

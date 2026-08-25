@@ -9,7 +9,6 @@
   security.polkit.enable = true;
 
   programs.sway.enable = true;
-  programs.mango.enable = true;   # renamed per the eval warning you got
 
   xdg.portal = {
     enable = true;
@@ -19,7 +18,7 @@
     ];
     config = {
       common.default = [ "gtk" ];
-      mango = {
+      sway = {
         default = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
