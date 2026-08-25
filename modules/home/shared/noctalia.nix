@@ -36,7 +36,7 @@
         margin_ends = 400;
         start = [ "cpu" "gpu" "ram" ];
         center = [ "workspaces" ];
-        end = [ "network" "volume" "bluetooth" "battery" "notifications" "session" ];
+        end = [ "tray" "network" "volume" "bluetooth" "battery" "notifications" "session" ];
       };
 
       wallpaper.enabled = false;
