@@ -33,17 +33,23 @@
         position = "bottom";
         concave_edge_corners = true;
         margin_ends = 400;
-        start = [ "cpu" "gpu" "ram" ];
+        start = [ "cpu" "gpu" "ram" "weather" ];
         center = [ "workspaces" ];
         end = [ "network" "volume" "bluetooth" "battery" "notifications" ];
       };
 
       wallpaper.enabled = false;
 
+      location = {
+        auto_locate = true;
+      };
+
       lockscreen = {
         enabled = true;
         lock_before_suspend = true;
         blurred_desktop = true;
+        blur_intensity = 0.8;
+        tint_intensity = 0.5;
       };
 
       widget = {
