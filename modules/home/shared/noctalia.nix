@@ -10,9 +10,9 @@
         settings_show_advanced = true;
       };
       theme = {
-        mode = "mocha";
-        source = "builtin";
-        builtin = "catppuccin";
+        mode = "dark";
+        source = "community";
+        community_palette = "Catppuccin Mocha Mauve-Lavender";
       };
 
 
