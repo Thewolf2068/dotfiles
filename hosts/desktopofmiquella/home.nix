@@ -23,5 +23,6 @@
     ../../modules/home/discord.nix
     ../../modules/home/zen-browser.nix
     ../../modules/home/wleave.nix
+    ../../modules/home/vicinae.nix
   ];
 }

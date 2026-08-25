@@ -36,7 +36,7 @@ in
 
       keybindings = {
         "${modifier}+Q" = "exec ${terminal}";
-        "${modifier}+D" = "exec fuzzel";
+        "${modifier}+D" = "exec vicinae toggle";
 
         "${modifier}+Shift+C" = "reload";
         "${modifier}+C" = "kill";
@@ -59,6 +59,7 @@ in
         "${modifier}+n" = "exec noctalia msg panel-toggle control-center notifications";
         "${modifier}+v" = "exec noctalia msg panel-toggle clipboard";
         "${modifier}+Shift+s" = "exec noctalia msg screenshot-region";
+        "${modifier}+Alt+l" = "exec noctalia msg session lock";
 
         "${modifier}+p" = "exec noctalia msg panel-toggle session";
 
