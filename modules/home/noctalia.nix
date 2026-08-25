@@ -90,7 +90,8 @@
           show_label = false;
         };
         battery = {
-          display_mode = "display_mode";
+          display_mode = "graphic";
+          show_label = false;
         };
       };
     };

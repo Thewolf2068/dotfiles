@@ -44,7 +44,7 @@
     ];
   };
 
-
+  services.upower.enable = true;
 
 # For dock
   services.hardware.bolt.enable = true;
