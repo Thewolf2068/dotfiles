@@ -28,8 +28,8 @@
           ];
           prep-cmd = [
             {
-              do = "${../home/scripts/headless_toggle.sh}";
-              undo = "${../home/scripts/headless_toggle.sh}";
+              do = "${../home/shared/scripts/headless_toggle.sh}";
+              undo = "${../home/shared/scripts/headless_toggle.sh}";
             }
             {
               do = "steam -shutdown";
