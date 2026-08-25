@@ -25,7 +25,8 @@
         margin_edge = 4;
         margin_ends = 5;
         start  = ["audio-vis" ];
-        end = ["media" "session" ];
+        center = [ "clock" ];
+        end = [ "media" ];
       };
       bar.bottom = {
         enabled = true;
@@ -33,9 +34,9 @@
         position = "bottom";
         concave_edge_corners = true;
         margin_ends = 400;
-        start = [ "cpu" "gpu" "ram" "weather" ];
+        start = [ "cpu" "gpu" "ram" ];
         center = [ "workspaces" ];
-        end = [ "network" "volume" "bluetooth" "battery" "notifications" ];
+        end = [ "network" "volume" "bluetooth" "battery" "notifications" "session" ];
       };
 
       wallpaper.enabled = false;
@@ -54,6 +55,7 @@
 
       widget = {
         workspaces = {
+          style = "focus_hint";
           show_labels = false;
         };
         audio-vis = {
@@ -65,7 +67,7 @@
           format = "{:%b %d} {:%H:%M}";
         };
         media = {
-          max_length = 300;
+          max_length = 500;
           hide_when_no_media = true;
           title_scroll = "always";
           art_size = 24;

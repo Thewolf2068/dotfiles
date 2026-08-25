@@ -34,13 +34,13 @@
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           onepassword-password-manager
-          stylus
           imagus
           return-youtube-dislikes
           vimium
           stylus
           youtube-shorts-block
           old-reddit-redirect
+          sponsorblock
         ];
       };
     };

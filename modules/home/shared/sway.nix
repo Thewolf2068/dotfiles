@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-wmScript = "${./scripts/workspace_manager.sh}";
+  wmScript = "${./scripts/workspace_manager.sh}";
 in
 {
   wayland.windowManager.sway = {
@@ -15,7 +15,7 @@ in
       blur enable
       blur_radius 7
       blur_passes 2
-      corner_radius 5
+      corner_radius 12
       '';
     config = rec {
       modifier = "Mod4";
@@ -26,6 +26,7 @@ in
       { command = "zen-beta"; }
       { command = "swaymsg create_output HEADLESS-1"; }
       { command = "sh -c 'protonplus update all; exec steam -silent'"; }
+      { command = "spotify"; }
       ];
 
       gaps = {
@@ -178,7 +179,7 @@ in
 
       assigns = {
         "workspace \"4\"" = [ { app_id = "zen-beta"; } ];
-        "workspace \"5\""   = [ { class = "spotify"; } ];
+        "workspace \"5\""   = [ { class = "Spotify"; } ];
         "workspace \"6\""  = [ { app_id = "signal"; } { app_id = "vesktop"; } ];
         "workspace \"7\""   = [ { app_id = "kitty"; } ];
         "workspace \"8\""   = [ { class = "steam"; } ];
