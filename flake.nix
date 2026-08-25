@@ -89,6 +89,7 @@
               home-manager.users.malenia = {
                 imports = [
                   ./hosts/${hostname}/home.nix
+                  ./hosts/shared-home.nix
                   catppuccin.homeModules.catppuccin
                   inputs.spicetify-nix.homeManagerModules.default
                   inputs.nvf.homeManagerModules.default
