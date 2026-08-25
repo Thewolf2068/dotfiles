@@ -36,7 +36,7 @@ in
 
       keybindings = {
         "${modifier}+Q" = "exec ${terminal}";
-        "${modifier}+D" = "exec vicinae toggle";
+        "${modifier}+D" = "exec noctalia msg panel-toggle launcher";
 
         "${modifier}+Shift+C" = "reload";
         "${modifier}+C" = "kill";
