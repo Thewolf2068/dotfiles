@@ -1,8 +1,5 @@
 { ... }:
 
-let
-  esc = builtins.fromJSON ''"\u001b"'';
-in
 {
   programs.fastfetch = {
     enable = true;
@@ -24,12 +21,6 @@ in
       };
       modules = [
         "break"
-        "break"
-        "break"
-        {
-          type = "custom";
-          format = "${esc}[90m  ${esc}[31m  ${esc}[32m  ${esc}[33m  ${esc}[34m  ${esc}[35m  ${esc}[36m  ${esc}[37m ";
-        }
         "break"
         {
           type = "title";
@@ -97,12 +88,6 @@ in
           key = " ";
           keyColor = "34";
         }
-        "break"
-        {
-          type = "custom";
-          format = "${esc}[90m  ${esc}[31m  ${esc}[32m  ${esc}[33m  ${esc}[34m  ${esc}[35m  ${esc}[36m  ${esc}[37m ";
-        }
-        "break"
         "break"
       ];
     };

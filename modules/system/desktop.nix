@@ -5,6 +5,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
   security.polkit.enable = true;
 
   programs.sway.enable = true;

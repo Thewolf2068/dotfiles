@@ -58,7 +58,7 @@ in
         "${modifier}+n" = "exec swaync-client -t";
         "${modifier}+v" = "exec kitty --class clipse clipse";
 
-# Swayosd shenanigans
+        # Swayosd shenanigans
         "XF86AudioRaiseVolume" = "exec swayosd-client --output-volume raise --max-volume 100";
         "XF86AudioLowerVolume" = "exec swayosd-client --output-volume lower --max-volume 100";
 
@@ -71,7 +71,7 @@ in
         "XF86AudioNext" = "exec swayosd-client --player \"spotify\" --playerctl next";
 
 
-# Trigger to switch into the summon mode
+        # Trigger to switch into the summon mode
         "${modifier}+space" = "mode \"summon\"";
       };
 
@@ -126,6 +126,11 @@ in
         };
       };
 
+      input."type:pointer" = {
+        scroll_method = "on_button_down";
+        scroll_button = "BTN_MIDDLE";
+      };
+
       window = {
         titlebar = false;
         border = 2;
@@ -142,7 +147,7 @@ in
         }
 
         {
-          command = "fullscreen enable, move container to workspace number 99, workspace number 99";
+          command = "fullscreen enable, move container to workspace number 8, workspace number 8";
           criteria.title = "Steam Big Picture Mode";
         }
 
@@ -158,7 +163,10 @@ in
             title = "^(?!.*Steam).*$";
           };
         }
-
+        {
+          command = "opacity 0.7";
+          criteria.app_id = "zen-beta";
+        }
         # Clipse popup
         {
           command = "floating enable, resize set 622 652, move position center, border pixel 2, sticky enable, focus";
@@ -169,7 +177,7 @@ in
 
       assigns = {
         "workspace \"4\"" = [ { app_id = "zen-beta"; } ];
-        "workspace \"5\""   = [ { app_id = "feishin"; } ];
+        "workspace \"5\""   = [ { class = "spotify"; } ];
         "workspace \"6\""  = [ { app_id = "signal"; } { app_id = "vesktop"; } ];
         "workspace \"7\""   = [ { app_id = "kitty"; } ];
         "workspace \"8\""   = [ { class = "steam"; } ];

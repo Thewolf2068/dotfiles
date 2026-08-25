@@ -28,7 +28,6 @@
           "custom/headsetVolume"
           "tray"
           "bluetooth"
-          # "network"
           "clock"
           "battery"
           "group/volume"
@@ -74,7 +73,7 @@
 
         "custom/power" = {
           format = "󰤆";
-          "on-click" = "${./scripts/fuzzel/powermenu.sh}";
+          "on-click" = "${pkgs.wleave}/bin/wleave";
           tooltip = false;
         };
 
