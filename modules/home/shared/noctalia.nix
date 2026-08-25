@@ -5,12 +5,7 @@
     enable = true;
     systemd.enable = true;
     settings = {
-      shell = {
-        font = "JetBrainsMono Nerd Font";
-        settings_show_advanced = true;
-      };
       theme = {
-        mode = "dark";
         source = "community";
         community_palette = "Catppuccin Mocha Mauve-Lavender";
       };
