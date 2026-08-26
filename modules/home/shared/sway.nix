@@ -31,7 +31,7 @@ in
       blur_radius 7
       blur_passes 2
       corner_radius 12
-      animation_duration_ms 150
+      # animation_duration_ms 150 # https://github.com/wlrfx/swayfx/issues/565
       '';
     config = rec {
       modifier = "Mod4";
