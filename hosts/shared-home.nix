@@ -18,5 +18,6 @@
     ../modules/home/shared/mangohud.nix
     ../modules/home/shared/discord.nix
     ../modules/home/shared/zen-browser.nix
+    ../modules/home/shared/polkit-agent.nix
   ];
 }
