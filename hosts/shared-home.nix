@@ -19,5 +19,6 @@
     ../modules/home/shared/discord.nix
     ../modules/home/shared/zen-browser.nix
     ../modules/home/shared/polkit-agent.nix
+    ../modules/home/shared/btop.nix
   ];
 }

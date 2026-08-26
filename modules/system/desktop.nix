@@ -7,6 +7,7 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.polkit.enable = true;
 
+  programs.mango.enable = true;
   programs.sway.enable = true;
 
   xdg.portal = {
@@ -18,6 +19,12 @@
     config = {
       common.default = [ "gtk" ];
       sway = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
+      mango = {
         default = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
