@@ -1,7 +1,7 @@
 { ... }:
 {
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+    services.power-profiles-daemon.enable = true;
     zramSwap = {
         enable = true;
         priority = 100;
