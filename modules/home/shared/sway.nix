@@ -203,4 +203,6 @@ in
       };
     };
   };
+
+  services.autotiling.enable = true;
 }
