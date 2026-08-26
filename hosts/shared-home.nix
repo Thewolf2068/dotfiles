@@ -20,5 +20,6 @@
     ../modules/home/shared/zen-browser.nix
     ../modules/home/shared/polkit-agent.nix
     ../modules/home/shared/btop.nix
+    ../modules/home/shared/thunderbird.nix
   ];
 }

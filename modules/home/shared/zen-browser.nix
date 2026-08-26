@@ -42,6 +42,8 @@
           old-reddit-redirect
           sponsorblock
           greasemonkey
+          seventv
+          betterttv
         ];
       };
     };
