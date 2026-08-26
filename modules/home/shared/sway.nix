@@ -1,17 +1,32 @@
 { pkgs, ... }:
 
 let
+  # 1. Patch the actual source code derivation (the unwrapped package)
+  patchedSwayfxUnwrapped = pkgs.swayfx-unwrapped.overrideAttrs (old: {
+    patches = (old.patches or []) ++ [ ./swayfx-565.patch ];
+
+    patchFlags = [ "-p1" "--ignore-whitespace" ];
+  });
+
+  # 2. Re-wrap the patched unwrapped package so you still get GTK/Wayland wrappers
+  patchedSwayfx = pkgs.swayfx.override {
+    swayfx-unwrapped = patchedSwayfxUnwrapped;
+  };
+
   workspaceManager = pkgs.writeShellApplication {
     name = "workspace-manager";
     runtimeInputs = [ pkgs.jq pkgs.sway ];
     text = ''
       TARGET=$1
       CURRENT_OUTPUT=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+
       # Only move if the workspace isn't already on the focused monitor
       WORKSPACE_OUTPUT=$(swaymsg -t get_workspaces | jq -r ".[] | select(.name == \"$TARGET\") | .output")
+
       if [ "$WORKSPACE_OUTPUT" != "$CURRENT_OUTPUT" ]; then
           swaymsg "workspace $TARGET; move workspace to output $CURRENT_OUTPUT"
       fi
+
       swaymsg "workspace $TARGET"
     '';
   };
@@ -21,9 +36,9 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = patchedSwayfx;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
-      checkConfig = false;
-    package = pkgs.swayfx;
+    checkConfig = false;
 
     extraConfig = ''
       shadows enable
@@ -31,26 +46,26 @@ in
       blur_radius 7
       blur_passes 2
       corner_radius 12
-      # animation_duration_ms 150 # https://github.com/wlrfx/swayfx/issues/565
-      '';
+      animation_duration_ms 150
+    '';
+
     config = rec {
       modifier = "Mod4";
       terminal = "kitty";
       bars = [ ];
 
       startup = [
-      { command = "zen-beta"; }
-      { command = "swaymsg create_output HEADLESS-1"; }
-      { command = "sh -c 'protonplus update all; exec steam -silent'"; }
-      { command = "spotify"; }
-      { command = "easyeffects --gapplication-service"; }
+        { command = "zen-beta"; }
+        { command = "swaymsg create_output HEADLESS-1"; }
+        { command = "sh -c 'protonplus update all; exec steam -silent'"; }
+        { command = "spotify"; }
+        { command = "easyeffects --gapplication-service"; }
       ];
 
       gaps = {
         inner = 5;
         outer = 5;
       };
-
 
       keybindings = {
         "${modifier}+Q" = "exec ${terminal}";
@@ -93,8 +108,6 @@ in
         "XF86MonBrightnessUp" = "exec noctalia msg brightness-up";
         "XF86MonBrightnessDown" = "exec noctalia msg brightness-down";
 
-
-
         # Trigger to switch into the summon mode
         "${modifier}+space" = "mode \"summon\"";
       };
@@ -132,16 +145,19 @@ in
           bg = "${./images/wallpapers/mifulu/5.png} fill";
           adaptive_sync = "off";
         };
+
         "LG Electronics LG ULTRAGEAR 407NTVS68263" = {
           mode = "2560x1440@144Hz";
           bg = "${./images/wallpapers/mifulu/2.png} fill";
           pos = "2560 0";
         };
+
         "HKC OVERSEAS LIMITED E2721F 0000000000001" = {
           mode = "2560x1440@100Hz";
           bg = "${./images/wallpapers/mifulu/7.png} fill";
           pos = "0 0";
         };
+
         "HEADLESS-1" = {
           mode = "2560x1440@144Hz";
           bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
@@ -155,51 +171,56 @@ in
         border = 2;
 
         commands = [
-        { 
-          command = "opacity 0.87"; 
-          criteria.app_id = ".*"; 
-        }
+          {
+            command = "opacity 0.87";
+            criteria.app_id = ".*";
+          }
 
-        { 
-          command = "opacity 0.87"; 
-          criteria.class = ".*"; 
-        }
+          {
+            command = "opacity 0.87";
+            criteria.class = ".*";
+          }
 
-        {
-          command = "fullscreen enable, move container to workspace number 8, workspace number 8";
-          criteria.title = "Steam Big Picture Mode";
-        }
+          {
+            command = "fullscreen enable, move container to workspace number 8, workspace number 8";
+            criteria.title = "Steam Big Picture Mode";
+          }
 
-        {
-          command = "fullscreen enable, move container to workspace 8, workspace 8";
-          criteria.class = "steam_app_*";
-        }
+          {
+            command = "fullscreen enable, move container to workspace 8, workspace 8";
+            criteria.class = "steam_app_*";
+          }
 
-        {
-          command = "floating enable";
-          criteria = {
-            class = "^steam$";
-            title = "^(?!.*Steam).*$";
-          };
-        }
-        {
-          command = "opacity 0.7";
-          criteria.app_id = "zen-beta";
-        }
-        # Clipse popup
-        {
-          command = "floating enable, resize set 622 652, move position center, border pixel 2, sticky enable, focus";
-          criteria.app_id = "clipse";
-        }
+          {
+            command = "floating enable";
+            criteria = {
+              class = "^steam$";
+              title = "^(?!.*Steam).*$";
+            };
+          }
+
+          {
+            command = "opacity 0.7";
+            criteria.app_id = "zen-beta";
+          }
+
+          # Clipse popup
+          {
+            command = "floating enable, resize set 622 652, move position center, border pixel 2, sticky enable, focus";
+            criteria.app_id = "clipse";
+          }
         ];
       };
 
       assigns = {
         "workspace \"4\"" = [ { app_id = "zen-beta"; } ];
-        "workspace \"5\""   = [ { class = "Spotify"; } ];
-        "workspace \"6\""  = [ { app_id = "signal"; } { app_id = "vesktop"; } ];
-        "workspace \"7\""   = [ { app_id = "kitty"; } ];
-        "workspace \"8\""   = [ { class = "steam"; } ];
+        "workspace \"5\"" = [ { class = "Spotify"; } ];
+        "workspace \"6\"" = [
+          { app_id = "signal"; }
+          { app_id = "vesktop"; }
+        ];
+        "workspace \"7\"" = [ { app_id = "kitty"; } ];
+        "workspace \"8\"" = [ { class = "steam"; } ];
       };
     };
   };
