@@ -36,7 +36,8 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    package = patchedSwayfx;
+    # package = pkgs.swayfx # Enable once they fix it
+    package = patchedSwayfx; 
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
     checkConfig = false;
 
@@ -46,7 +47,7 @@ in
       blur_radius 7
       blur_passes 2
       corner_radius 12
-      animation_duration_ms 150
+      animation_duration_ms 200
     '';
 
     config = rec {

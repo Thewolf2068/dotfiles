@@ -25,6 +25,7 @@
     tealdeer
     killall
     easyeffects
+    _1password-gui
 
 
     # Gaming
