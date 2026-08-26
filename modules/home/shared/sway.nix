@@ -42,6 +42,7 @@ in
       { command = "swaymsg create_output HEADLESS-1"; }
       { command = "sh -c 'protonplus update all; exec steam -silent'"; }
       { command = "spotify"; }
+      { command = "easyeffects --gapplication-service"; }
       ];
 
       gaps = {

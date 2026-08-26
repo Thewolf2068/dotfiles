@@ -24,6 +24,7 @@
     wev
     tealdeer
     killall
+    easyeffects
 
 
     # Gaming
