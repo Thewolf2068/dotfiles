@@ -23,6 +23,7 @@
     pavucontrol
     wev
     tealdeer
+    killall
 
 
     # Gaming

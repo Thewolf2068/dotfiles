@@ -51,7 +51,10 @@ in
               undo = "${headlessToggle}/bin/headless-toggle";
             }
             {
-              do = "steam -shutdown";
+              do = "${pkgs.steam}/bin/steam -shutdown";
+            }
+            {
+              do = "sleep 10";
             }
           ];
         }
