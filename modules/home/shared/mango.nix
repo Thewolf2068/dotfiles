@@ -1,22 +1,21 @@
 { pkgs, ... }:
 
 let
-  # The summon script adapted for MangoWM
   workspaceManager = pkgs.writeShellApplication {
     name = "workspace-manager";
-    runtimeInputs = [ pkgs.jq ]; # mmsg is assumed to be in your system $PATH via your WM package
+    runtimeInputs = [ pkgs.jq ];
     text = ''
       TAG_NUM=$1
 
       # 1. Convert human-readable tag (1-9) to a bitmask
       TARGET_MASK=$(( 1 << (TAG_NUM - 1) ))
 
-      # 2. Determine the currently focused monitor
+      # 2. Determine the currently focused monitor safely from the JSON object
       CURRENT_MON=$(mmsg get focusing-client | jq -r '.monitor // empty')
 
-      # Fallback to cursor position if no client is focused
+      # Fallback to cursor position if no monitor was found
       if [[ -z "$CURRENT_MON" || "$CURRENT_MON" == "null" ]]; then
-          CURRENT_MON=$(mmsg get cursorpos | jq -r '.monitor')
+          CURRENT_MON=$(mmsg get cursorpos | jq -r '.monitor // empty')
       fi
 
       # 3. Pull clients from other monitors
@@ -26,12 +25,12 @@ let
           
           # Check if the window belongs to our target tag
           if (( CLIENT_TAGS & TARGET_MASK )); then
-              mmsg dispatch tagcrossmon,$TARGET_MASK,$CURRENT_MON client,$CLIENT_ID
+              mmsg dispatch tagcrossmon "$TARGET_MASK" "$CURRENT_MON" client "$CLIENT_ID"
           fi
       done
 
       # 4. Switch the current monitor's view to the target tag
-      mmsg dispatch viewcrossmon,$TARGET_MASK,$CURRENT_MON
+      mmsg dispatch viewcrossmon "$TARGET_MASK" "$CURRENT_MON"
     '';
   };
 
