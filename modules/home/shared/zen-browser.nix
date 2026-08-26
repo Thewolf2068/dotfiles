@@ -41,6 +41,7 @@
           youtube-shorts-block
           old-reddit-redirect
           sponsorblock
+          greasemonkey
         ];
       };
     };

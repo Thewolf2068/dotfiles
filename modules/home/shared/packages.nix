@@ -37,6 +37,12 @@
     deadlock-mod-manager
     faugus-launcher
     sgdboop
+
+    # Protontricks + dependencies
+    protontricks
+    winetricks
+    zenity
+    yad
   ];
 
   home.sessionVariables = {

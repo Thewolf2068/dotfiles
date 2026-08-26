@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.noctalia = {
@@ -97,6 +97,27 @@
           show_label = false;
         };
       };
+    };
+  };
+
+  # important for keyring to get unlocked 
+  # Without this clipboard history is broken
+  systemd.user.services.noctalia = {
+    Unit = {
+      After = [
+        "graphical-session.target"
+        "gnome-keyring.service"
+        "dbus-org.freedesktop.secrets.service"
+        "dbus.service"
+      ];
+      Wants = [ 
+        "gnome-keyring.service"
+        "dbus-org.freedesktop.secrets.service" 
+      ];
+    };
+    Service = {
+      # Gives GNOME Keyring 1 second to process PAM authentication on boot
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
     };
   };
 }
