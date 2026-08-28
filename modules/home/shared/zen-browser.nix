@@ -44,6 +44,7 @@
           greasemonkey
           seventv
           betterttv
+          indie-wiki-buddy
         ];
       };
     };

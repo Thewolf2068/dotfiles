@@ -1,18 +1,6 @@
 { pkgs, ... }:
 
 let
-  # 1. Patch the actual source code derivation (the unwrapped package)
-  patchedSwayfxUnwrapped = pkgs.swayfx-unwrapped.overrideAttrs (old: {
-    patches = (old.patches or []) ++ [ ./swayfx-565.patch ];
-
-    patchFlags = [ "-p1" "--ignore-whitespace" ];
-  });
-
-  # 2. Re-wrap the patched unwrapped package so you still get GTK/Wayland wrappers
-  patchedSwayfx = pkgs.swayfx.override {
-    swayfx-unwrapped = patchedSwayfxUnwrapped;
-  };
-
   workspaceManager = pkgs.writeShellApplication {
     name = "workspace-manager";
     runtimeInputs = [ pkgs.jq pkgs.sway ];
@@ -36,8 +24,7 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    # package = pkgs.swayfx # Enable once they fix it
-    package = patchedSwayfx; 
+    package = pkgs.swayfx; # Enable once they fix it
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
     checkConfig = false;
 
@@ -47,7 +34,7 @@ in
       blur_radius 7
       blur_passes 2
       corner_radius 12
-      animation_duration_ms 200
+      # animation_duration_ms 200
     '';
 
     config = rec {
@@ -221,7 +208,10 @@ in
           { app_id = "vesktop"; }
         ];
         "workspace \"7\"" = [ { app_id = "kitty"; } ];
-        "workspace \"8\"" = [ { class = "steam"; } ];
+        "workspace \"8\"" = [ 
+          { class = "steam"; }
+          { class = "osu!"; }
+        ];
       };
     };
   };
