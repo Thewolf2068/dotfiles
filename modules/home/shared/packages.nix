@@ -39,12 +39,7 @@
     deadlock-mod-manager
     faugus-launcher
     sgdboop
-
-    # Protontricks + dependencies
-    protontricks
-    winetricks
-    zenity
-    yad
+    osu-lazer-bin
   ];
 
   home.sessionVariables = {

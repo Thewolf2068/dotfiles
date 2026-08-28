@@ -50,7 +50,7 @@
 
       widget = {
         workspaces = {
-          style = "focus_hint";
+          # style = "focus_hint";
           show_labels = false;
         };
         audio-vis = {
