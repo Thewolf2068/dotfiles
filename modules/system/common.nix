@@ -1,6 +1,9 @@
 { ... }:
 {
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix = {
+      optimise.automatic = true;
+      settings.experimental-features = [ "nix-command" "flakes" ];
+    };
     services.power-profiles-daemon.enable = true;
     programs.kdeconnect.enable = true;
 

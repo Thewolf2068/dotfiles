@@ -19,6 +19,7 @@
         "widget.transparent-windows" = false;
         "browser.search.suggest.enabled" = true;
         "browser.urlbar.suggest.searches" = true;
+        "media.hardwaremediakeys.enabled" = false;
       };
 
       presets = {

@@ -31,7 +31,7 @@
         margin_ends = 400;
         start = [ "cpu" "gpu" "ram" ];
         center = [ "workspaces" ];
-        end = [ "tray" "network" "volume" "bluetooth" "battery" "notifications" "session" ];
+        end = [ "tray" "avivbintangaringga/nix-monitor:nix-monitor" "network" "volume" "bluetooth" "battery" "notifications" "session" ];
       };
 
       wallpaper.enabled = false;
@@ -47,6 +47,10 @@
         blur_intensity = 0.8;
         tint_intensity = 0.5;
       };
+      plugins = {
+        enabled = ["avivbintangaringga/nix-monitor"];
+      };
+
 
       widget = {
         workspaces = {
