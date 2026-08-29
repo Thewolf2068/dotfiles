@@ -4,6 +4,7 @@
       optimise.automatic = true;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
+    services.flatpak.enable = true;
     services.power-profiles-daemon.enable = true;
     programs.kdeconnect.enable = true;
 
