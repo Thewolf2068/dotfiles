@@ -26,6 +26,7 @@
     killall
     easyeffects
     _1password-gui
+    solaar
 
 
     # Gaming
