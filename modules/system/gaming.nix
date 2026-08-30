@@ -1,21 +1,33 @@
 { pkgs, ... }:
-
 let
   headlessToggle = pkgs.writeShellApplication {
     name = "headless-toggle";
     runtimeInputs = [ pkgs.jq pkgs.sway ];
     text = ''
-      HEADLESS="HEADLESS-1"
-      PHYSICAL_ACTIVE=$(swaymsg -t get_outputs | jq -r ".[] | select(.name != \"$HEADLESS\" and .active == true) | .name")
-      if [ -n "$PHYSICAL_ACTIVE" ]; then
-          swaymsg output "HEADLESS-1" enable
-          for mon in $PHYSICAL_ACTIVE; do
+      HEADLESS="''${1:?Usage: headless-toggle <headless-output-name>}"
+
+      HEADLESS_ACTIVE=$(swaymsg -t get_outputs | jq -r --arg h "$HEADLESS" '.[] | select(.name == $h) | .active')
+
+      mapfile -t ALL_PHYSICAL < <(swaymsg -t get_outputs | jq -r '.[] | select(.name | startswith("HEADLESS") | not) | .name')
+      mapfile -t ALL_HEADLESS < <(swaymsg -t get_outputs | jq -r '.[] | select(.name | startswith("HEADLESS")) | .name')
+
+      if [ "$HEADLESS_ACTIVE" != "true" ]; then
+          # Entering streaming mode: bring up the requested headless output,
+          # disable every physical output.
+          swaymsg output "$HEADLESS" enable
+          for mon in "''${ALL_PHYSICAL[@]}"; do
               swaymsg output "$mon" disable
           done
           swaymsg workspace 99
       else
-          swaymsg output "*" enable
-          swaymsg output "HEADLESS-1" disable
+          # Leaving streaming mode: bring back every physical output,
+          # disable ALL headless outputs (not just the one we were using).
+          for mon in "''${ALL_PHYSICAL[@]}"; do
+              swaymsg output "$mon" enable
+          done
+          for mon in "''${ALL_HEADLESS[@]}"; do
+              swaymsg output "$mon" disable
+          done
           # pkill waybar
           # waybar &
           swaymsg workspace "99"
@@ -29,6 +41,9 @@ in
     enable = true;
     gamescopeSession.enable = true;
     protontricks.enable = true;
+    extraCompatPackages = [
+      pkgs.steamtinkerlaunch
+    ];
   };
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
@@ -46,16 +61,56 @@ in
           detached = [
             "${pkgs.gamescope}/bin/gamescope -e -H 1440 -W 2560 -r 144 -- ${pkgs.steam}/bin/steam -gamepadui"
           ];
+          image-path = "${./sunshine-thumbnails/Steam-desktop.png}";
           prep-cmd = [
             {
-              do = "${headlessToggle}/bin/headless-toggle";
-              undo = "${headlessToggle}/bin/headless-toggle";
+              do = "${headlessToggle}/bin/headless-toggle HEADLESS-1";
+              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-1";
             }
             {
               do = "${pkgs.steam}/bin/steam -shutdown";
             }
             {
               do = "sleep 10";
+            }
+          ];
+        }
+        {
+          name = "Steam iPad";
+          detached = [
+            "${pkgs.gamescope}/bin/gamescope -e -H 1640 -W 2360 -r 60 -- ${pkgs.steam}/bin/steam -gamepadui"
+          ];
+          image-path = "${./sunshine-thumbnails/Steam-iPad.png}";
+          prep-cmd = [
+            {
+              do = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+            }
+            {
+              do = "${pkgs.steam}/bin/steam -shutdown";
+            }
+            {
+              do = "sleep 10";
+            }
+          ];
+        }
+        {
+          name = "Desktop Desktop";
+          image-path = "${./sunshine-thumbnails/Desktop-Desktop.png}";
+          prep-cmd = [
+            {
+              do = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+            }
+          ];
+        }
+        {
+          name = "Desktop iPad";
+          image-path = "${./sunshine-thumbnails/Desktop-iPad.png}";
+          prep-cmd = [
+            {
+              do = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
             }
           ];
         }

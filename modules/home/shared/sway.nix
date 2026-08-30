@@ -43,8 +43,10 @@ in
       bars = [ ];
 
       startup = [
-        { command = "zen-beta"; }
         { command = "swaymsg create_output HEADLESS-1"; }
+        { command = "swaymsg create_output HEADLESS-2"; }
+
+        { command = "zen-beta"; }
         { command = "sh -c 'protonplus update all; exec steam -silent'"; }
         { command = "spotify"; }
         { command = "easyeffects --gapplication-service"; }
@@ -149,6 +151,12 @@ in
 
         "HEADLESS-1" = {
           mode = "2560x1440@144Hz";
+          bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
+          pos = "0 1000000" ;
+          disable = "";
+        };
+        "HEADLESS-2" = {
+          mode = "2360x1640@60Hz";
           bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
           pos = "1000000 0";
           disable = "";
