@@ -48,6 +48,7 @@ in
         { command = "sh -c 'protonplus update all; exec steam -silent'"; }
         { command = "spotify"; }
         { command = "easyeffects --gapplication-service"; }
+        { command = "kdeconnectd"; }
       ];
 
       gaps = {
