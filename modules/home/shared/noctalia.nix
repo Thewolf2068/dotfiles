@@ -57,6 +57,9 @@
           # style = "focus_hint";
           show_labels = false;
         };
+        "avivbintangaringga/nix-monitor:nix-monitor" = {
+          show_text = false;
+        };
         audio-vis = {
           type = "audio_visualizer";
           width = 182;
