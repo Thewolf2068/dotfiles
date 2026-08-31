@@ -41,9 +41,6 @@ in
     enable = true;
     gamescopeSession.enable = true;
     protontricks.enable = true;
-    extraCompatPackages = [
-      pkgs.steamtinkerlaunch
-    ];
   };
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
@@ -99,8 +96,8 @@ in
           image-path = "${./sunshine-thumbnails/Desktop-Desktop.png}";
           prep-cmd = [
             {
-              do = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
-              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-2";
+              do = "${headlessToggle}/bin/headless-toggle HEADLESS-1";
+              undo = "${headlessToggle}/bin/headless-toggle HEADLESS-1";
             }
           ];
         }

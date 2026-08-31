@@ -41,6 +41,7 @@
     faugus-launcher
     sgdboop
     osu-lazer-bin
+    steamtinkerlaunch
   ];
 
   home.sessionVariables = {
