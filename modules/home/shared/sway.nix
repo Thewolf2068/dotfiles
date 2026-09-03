@@ -92,6 +92,11 @@ in
         "XF86AudioLowerVolume" = "exec noctalia msg volume-down";
         "XF86AudioMute" = "exec noctalia msg volume-mute";
 
+        
+        "${modifier}+XF86AudioRaiseVolume" = "exec playerctl --player=spotify volume 0.05+";
+        "${modifier}+XF86AudioLowerVolume" = "exec playerctl --player=spotify volume 0.05-";
+
+
         "XF86AudioPlay" = "exec playerctl --player=spotify play-pause";
         "XF86AudioNext" = "exec playerctl --player=spotify next";
 

@@ -27,6 +27,7 @@
     easyeffects
     _1password-gui
     solaar
+    keepassxc
 
 
     # Gaming

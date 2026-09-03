@@ -10,7 +10,7 @@
         community_palette = "Catppuccin Mocha Mauve-Lavender";
       };
 
-
+      wallpaper.enabled = false;
       bar.default.enabled = false;
       bar.top = {
         background_opacity = 0.9;
@@ -18,7 +18,7 @@
         position = "top";
         concave_edge_corners = false;
         margin_edge = 4;
-        margin_ends = 5;
+        margin_ends = 12;
         start  = ["audio-vis" ];
         center = [ "clock" ];
         end = [ "media" ];
@@ -31,10 +31,8 @@
         margin_ends = 400;
         start = [ "cpu" "gpu" "ram" ];
         center = [ "workspaces" ];
-        end = [ "tray" "avivbintangaringga/nix-monitor:nix-monitor" "network" "volume" "bluetooth" "battery" "notifications" "session" ];
+        end = [ "tray" "network" "volume" "bluetooth" "battery" "notifications" "session" ];
       };
-
-      wallpaper.enabled = false;
 
       location = {
         auto_locate = true;
@@ -47,18 +45,14 @@
         blur_intensity = 0.8;
         tint_intensity = 0.5;
       };
-      plugins = {
-        enabled = ["avivbintangaringga/nix-monitor"];
-      };
+      # plugins = {
+      # };
 
 
       widget = {
         workspaces = {
           # style = "focus_hint";
           show_labels = false;
-        };
-        "avivbintangaringga/nix-monitor:nix-monitor" = {
-          show_text = false;
         };
         audio-vis = {
           type = "audio_visualizer";
@@ -102,6 +96,9 @@
         battery = {
           display_mode = "graphic";
           show_label = false;
+        };
+        tray = {
+          capsule = true;
         };
       };
     };
