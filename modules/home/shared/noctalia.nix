@@ -18,7 +18,7 @@
         position = "top";
         concave_edge_corners = false;
         margin_edge = 4;
-        margin_ends = 12;
+        margin_ends = 5;
         start  = ["audio-vis" ];
         center = [ "clock" ];
         end = [ "media" ];
