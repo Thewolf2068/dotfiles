@@ -47,6 +47,7 @@ in
         { command = "swaymsg create_output HEADLESS-2"; }
 
         { command = "zen-beta"; }
+        { command = "discord"; }
         { command = "sh -c 'protonplus update all; exec steam -silent'"; }
         { command = "spotify"; }
         { command = "easyeffects --gapplication-service"; }
@@ -95,6 +96,7 @@ in
         
         "${modifier}+XF86AudioRaiseVolume" = "exec playerctl --player=spotify volume 0.05+";
         "${modifier}+XF86AudioLowerVolume" = "exec playerctl --player=spotify volume 0.05-";
+        "${modifier}+XF86AudioMute" = "exec playerctl --player=spotify play-pause";
 
 
         "XF86AudioPlay" = "exec playerctl --player=spotify play-pause";
@@ -219,7 +221,7 @@ in
         "workspace \"5\"" = [ { class = "Spotify"; } ];
         "workspace \"6\"" = [
           { app_id = "signal"; }
-          { app_id = "vesktop"; }
+          { app_id = "discord"; }
         ];
         "workspace \"7\"" = [ { app_id = "kitty"; } ];
         "workspace \"8\"" = [ 
