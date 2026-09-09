@@ -39,9 +39,17 @@
 
   environment.systemPackages = [
     (pkgs.sddm-astronaut.override {
-      embeddedTheme = "pixel_sakura";
+      embeddedTheme = "japanese_aesthetic";
     })
   ];
+
+  fonts.fontconfig.localConf = ''
+    <?xml version="1.0"?>
+    <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+    <fontconfig>
+      <dir>/run/current-system/sw/share/sddm/themes/sddm-astronaut-theme/Fonts</dir>
+    </fontconfig>
+  '';
 
   services.xserver.xkb = {
     layout = "us";

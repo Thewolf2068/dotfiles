@@ -5,11 +5,10 @@
     enable = true;
     settings = {
       vim = {
-
         options = {
-          tabstop = 2;       # Number of spaces a <Tab> counts for
-          shiftwidth = 2;    # Number of spaces used for each step of auto-indent
-          softtabstop = 2;   # Number of spaces a <Tab> counts for while performing editing operations
+          tabstop = 4;       # Number of spaces a <Tab> counts for
+          shiftwidth = 4;    # Number of spaces used for each step of auto-indent
+          softtabstop = 4;   # Number of spaces a <Tab> counts for while performing editing operations
           expandtab = true;  # Convert tabs to spaces
         };
         
@@ -129,6 +128,10 @@
             lsp.enable = true;
           };
           python = {
+            enable = true;
+            lsp.enable = true;
+          };
+          java = {
             enable = true;
             lsp.enable = true;
           };

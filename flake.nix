@@ -45,6 +45,7 @@
     };
 
     nixcord.url = "github:4evy/nixcord";
+
   };
 
   outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, ... }@inputs:

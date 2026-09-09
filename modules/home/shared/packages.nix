@@ -28,6 +28,8 @@
     _1password-gui
     solaar
     keepassxc
+    jdk25
+    maven
 
 
     # Gaming
