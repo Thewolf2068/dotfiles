@@ -30,6 +30,7 @@
     keepassxc
     jdk25
     maven
+    vscodium-fhs
 
 
     # Gaming
