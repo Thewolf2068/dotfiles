@@ -45,8 +45,6 @@
         blur_intensity = 0.8;
         tint_intensity = 0.5;
       };
-      # plugins = {
-      # };
 
 
       widget = {

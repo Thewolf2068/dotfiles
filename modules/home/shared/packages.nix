@@ -31,6 +31,7 @@
     jdk25
     maven
     vscodium-fhs
+    clinfo
 
 
     # Gaming
@@ -46,6 +47,13 @@
     sgdboop
     osu-lazer-bin
     steamtinkerlaunch
+
+
+    # Kubernetes
+    talhelper
+    talosctl
+    kubectl
+    argocd
   ];
 
   home.sessionVariables = {

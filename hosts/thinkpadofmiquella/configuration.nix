@@ -13,6 +13,7 @@
       ../../modules/system/gaming.nix
       ../../modules/system/packages.nix
       ../../modules/system/virtualization.nix
+      ../../modules/system/amd.nix
   ];
 
   hardware.bluetooth = {
@@ -31,10 +32,6 @@
 
   services.blueman.enable = true;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
   services.logind.settings.Login.HandleLidSwitch = "suspend";
   boot = {
     loader.systemd-boot.enable = true;
@@ -47,14 +44,11 @@
 
   services.upower.enable = true;
 
-# For dock
+  # For dock
   services.hardware.bolt.enable = true;
 
   networking.hostName = "thinkpadofmiquella";
   networking.wireless.enable = true;
-
-
-# Ensure libvirtd is enabled for virt-manager
 
   system.stateVersion = "26.05";
 }

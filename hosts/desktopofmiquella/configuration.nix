@@ -13,15 +13,13 @@
       ../../modules/system/gaming.nix
       ../../modules/system/packages.nix
       ../../modules/system/virtualization.nix
+      ../../modules/system/amd.nix
   ];
 
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "amdgpu.ppfeaturemask=0xffffffff"
-    ];
   };
 
 

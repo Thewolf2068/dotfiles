@@ -44,7 +44,10 @@ in
   };
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
-  services.lact.enable = true;
+
+  boot.kernelModules = [ "ntsync" ];
+
+
   services.sunshine = {
     enable = true;
     openFirewall = true;
