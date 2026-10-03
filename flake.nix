@@ -15,8 +15,7 @@
     };
 
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
+      url = "github:0xc000022070/zen-browser-flake"; inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
@@ -51,9 +50,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Decky/Steam deck
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, jovian, ... }@inputs:
     let
       # Shared overlay: kotofetch + waybar (built with mango workspaces + cava support)
       overlaysModule = { config, pkgs, ... }: {
@@ -87,6 +92,7 @@
             ./hosts/${hostname}/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
+            jovian.nixosModules.default
             {
               nixpkgs.config.allowUnfree = true;
               home-manager.useGlobalPkgs = true;

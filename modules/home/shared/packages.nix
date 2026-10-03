@@ -32,6 +32,8 @@
     maven
     vscodium-fhs
     clinfo
+    android-tools
+    oci-cli
 
 
     # Gaming
@@ -41,7 +43,7 @@
     lutris
     heroic
     prismlauncher
-    limo
+    # limo
     deadlock-mod-manager
     faugus-launcher
     sgdboop
@@ -54,6 +56,7 @@
     talosctl
     kubectl
     argocd
+    velero
   ];
 
   home.sessionVariables = {

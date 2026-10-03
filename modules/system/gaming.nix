@@ -45,6 +45,11 @@ in
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
+  jovian.decky-loader = {
+    enable = true;
+    user = "malenia";
+  };
+
   boot.kernelModules = [ "ntsync" ];
 
 
