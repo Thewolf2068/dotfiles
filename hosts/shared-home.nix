@@ -21,5 +21,6 @@
     ../modules/home/shared/polkit-agent.nix
     ../modules/home/shared/btop.nix
     ../modules/home/shared/thunderbird.nix
+    ../modules/home/shared/gaming.nix
   ];
 }

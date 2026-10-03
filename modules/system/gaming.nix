@@ -45,6 +45,7 @@ in
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
+  # Enables decky loader
   jovian.decky-loader = {
     enable = true;
     user = "malenia";
