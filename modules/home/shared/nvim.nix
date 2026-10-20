@@ -16,6 +16,13 @@
           mapleader = " ";
         };
 
+  
+        statusline.lualine.enable = true;
+        telescope.enable = true;
+        git.gitsigns.enable = true;
+        tabline.nvimBufferline.enable = true;
+        ui.borders.plugins.which-key.enable = true;
+
         autocomplete.blink-cmp = {
           enable = true;
       
@@ -145,12 +152,6 @@
           name = "catppuccin";
           style = "mocha";
         };
-  
-        statusline.lualine.enable = true;
-        telescope.enable = true;
-        git.gitsigns.enable = true;
-        tabline.nvimBufferline.enable = true;
-        ui.borders.plugins.which-key.enable = true;
       };
     };
   };

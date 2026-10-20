@@ -14,6 +14,7 @@
       ../../modules/system/packages.nix
       ../../modules/system/virtualization.nix
       ../../modules/system/amd.nix
+      ../../modules/system/ollama.nix
   ];
 
   hardware.bluetooth = {

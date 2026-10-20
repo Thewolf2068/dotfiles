@@ -145,7 +145,7 @@ in
       output = {
         eDP-1 = {
           mode = "1920x1200@60Hz";
-          bg = "${./images/wallpapers/mifulu/5.png} fill";
+          bg = "${./images/wallpapers/normal/8.png} fill";
           adaptive_sync = "off";
         };
 
