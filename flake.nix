@@ -9,10 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      catppuccin.url = "github:catppuccin/nix";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake"; inputs = {

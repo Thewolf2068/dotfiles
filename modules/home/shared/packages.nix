@@ -34,6 +34,7 @@
     clinfo
     android-tools
     oci-cli
+    fladder
 
 
     # Gaming
