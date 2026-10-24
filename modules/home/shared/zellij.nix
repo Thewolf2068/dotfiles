@@ -62,13 +62,11 @@ in
       mouse_hover_tips = false;               # hides the "Ctrl <MouseScroll>..." resize hint
       ui.pane_frames.rounded_corners = true;
 
-      # Alt+d detaches (Alt+f already toggles floating panes by default)
       keybinds.shared_except = {
         _args = [ "locked" ];
-        bind = {
-          _args = [ "Alt d" ];
-          Detach = { };
-        };
+        _children = [
+          { bind = { _args = [ "Alt d" ]; Detach = { }; }; }
+        ];
       };
     };
 
