@@ -36,7 +36,9 @@ let
         *)
           not_nested
           dir=$(realpath "''${1:-.}")
-          name="ide-$(basename "$dir")"
+          base=''${dir##*/}
+          hash=$(printf '%s' "$dir" | sha256sum | cut -c1-6)
+          name="ide-''${base:-root}-$hash"
           existing=$(sessions)
           if grep -qxF -- "$name" <<<"$existing"; then
             exec zellij attach "$name"

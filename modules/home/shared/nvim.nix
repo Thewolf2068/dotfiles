@@ -15,44 +15,19 @@
           mapleader = " ";
         };
 
-        # avante.nvim requires the mega.cmdparse Lua rock at runtime
-        luaPackages = [
-          "mega-cmdparse"
-          "mega-logging"
-        ];
-
         statusline.lualine.enable = true;
         telescope.enable = true;
         git.gitsigns.enable = true;
         tabline.nvimBufferline.enable = true;
         ui = {
           borders.plugins.which-key.enable = true;
-          noice.enable = true;
         };
 
-
-        assistant.avante-nvim = {
+        utility.oil-nvim = {
           enable = true;
-          setupOpts = {
-            behaviour.auto_suggestions = true;
-            provider = "ollama-qwen";
-            providers = {
-              ollama-qwen = {
-                __inherited_from = "ollama";
-                endpoint = "http://127.0.0.1:11434";
-                model = "qwen2.5-coder:7b";
-                timeout = 3000;
-                extra_request_body = {
-                  options = {
-                    temperature = 0.75;
-                    num_ctx = 20480;
-                    keep_alive = "5m";
-                  };
-                };
-              };
-            };
-          };
-        }; 
+          gitStatus.enable = true;
+        };
+
 
         autocomplete.blink-cmp = {
           enable = true;
@@ -106,7 +81,6 @@
               event_handlers = [
               {
                 event = "file_open_requested";
-# Use mkLuaInline instead of handler.__raw
                 handler = lib.generators.mkLuaInline ''
                   function()
                   vim.cmd("Neotree close")
@@ -174,12 +148,6 @@
 
         viAlias = true;
         vimAlias = true;
-        luaConfigRC.avante-cpath = ''
-          local f = vim.api.nvim_get_runtime_file("pack/*/opt/avante-nvim/build/avante_templates.so", false)[1]
-          if f then
-            package.cpath = package.cpath .. ";" .. vim.fn.fnamemodify(f, ":h") .. "/?.so"
-          end
-        '';
         theme = {
           enable = true;
           name = "catppuccin";
