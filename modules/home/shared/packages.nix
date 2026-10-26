@@ -35,7 +35,8 @@
     android-tools
     oci-cli
     fladder
-
+    devenv
+    nautilus
 
     # Gaming
     supertuxkart
@@ -44,7 +45,7 @@
     lutris
     heroic
     prismlauncher
-    # limo
+    limo
     deadlock-mod-manager
     faugus-launcher
     sgdboop

@@ -1,5 +1,33 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
+let
+  # Helper: wrap a multicursor.nvim call as an nvf lua keymap.
+  mc = call: desc: {
+    action = "function() require('multicursor-nvim').${call} end";
+    lua = true;
+    silent = true;
+    inherit desc;
+  };
+
+  # Keymaps shared between normal ("n") and visual ("x") mode.
+  # Applied to maps.normal and maps.visualOnly below.
+  mcKeys = {
+    # Add or skip cursor above/below the main cursor
+    "<up>"             = mc "lineAddCursor(-1)"  "MC: add cursor above";
+    "<down>"           = mc "lineAddCursor(1)"   "MC: add cursor below"; 
+    "<leader><up>"     = mc "lineSkipCursor(-1)" "MC: skip line above";
+    "<leader><down>"   = mc "lineSkipCursor(1)"  "MC: skip line below";
+
+    # Add or skip adding a new cursor by matching word/selection
+    "<leader>n"        = mc "matchAddCursor(1)"  "MC: add next match";
+    "<leader>s"        = mc "matchSkipCursor(1)" "MC: skip next match";
+    "<leader>N"        = mc "matchAddCursor(-1)" "MC: add previous match";
+    "<leader>S"        = mc "matchSkipCursor(-1)" "MC: skip previous match";
+
+    # Disable and enable cursors
+    "<c-q>"            = mc "toggleCursor()"     "MC: toggle cursor";
+  };
+in
 {
   programs.nvf = {
     enable = true;
@@ -103,7 +131,52 @@
         # ──────────────────────────────────────────────
         # Editing helpers
         # ──────────────────────────────────────────────
-        utility.multicursors.enable = true;
+        # multicursor.nvim (jake-stewart) replaces utility.multicursors
+        extraPlugins.multicursor-nvim = {
+          package = pkgs.vimPlugins.multicursor-nvim;
+          setup = ''
+            local mc = require("multicursor-nvim")
+            mc.setup()
+
+            -- Mappings in a keymap layer only apply when there are
+            -- multiple cursors, so they can overlap with normal mappings.
+            mc.addKeymapLayer(function(layerSet)
+              -- Select a different cursor as the main one
+              layerSet({"n", "x"}, "<left>", mc.prevCursor)
+              layerSet({"n", "x"}, "<right>", mc.nextCursor)
+
+              -- Delete the main cursor
+              layerSet({"n", "x"}, "<leader>x", mc.deleteCursor)
+
+              -- Enable and clear cursors using escape
+              layerSet("n", "<esc>", function()
+                if not mc.cursorsEnabled() then
+                  mc.enableCursors()
+                else
+                  mc.clearCursors()
+                end
+              end)
+            end)
+
+            -- Customize how cursors look
+            local hl = vim.api.nvim_set_hl
+            hl(0, "MultiCursorCursor", { reverse = true })
+            hl(0, "MultiCursorVisual", { link = "Visual" })
+            hl(0, "MultiCursorSign", { link = "SignColumn" })
+            hl(0, "MultiCursorMatchPreview", { link = "Search" })
+            hl(0, "MultiCursorDisabledCursor", { reverse = true })
+            hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+            hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })
+          '';
+        };
+        # ──────────────────────────────────────────────
+        # Debugger
+        # ──────────────────────────────────────────────
+
+        debugger.nvim-dap = {
+          enable = true;
+          ui.enable = true;
+        };
 
         # ──────────────────────────────────────────────
         # Completion
@@ -145,11 +218,18 @@
           go     = { enable = true; lsp.enable = true; };
           python = { enable = true; lsp.enable = true; };
           java   = { enable = true; lsp.enable = true; };
+          clang = { enable = true; lsp.enable = true; };
         };
 
         # ──────────────────────────────────────────────
-        # Global keybinds (normal mode)
+        # Global keybinds
         # ──────────────────────────────────────────────
+
+        binds.whichKey.enable = true;
+        # Visual mode ("x"): multicursor keys only
+        maps.visualOnly = mcKeys;
+
+        # Normal mode
         maps.normal = {
           # Buffers
           "<Tab>" = {
@@ -179,7 +259,24 @@
             silent = true;
             desc = "Open Oil";
           };
-        };
+
+          # Multicursor: add/remove cursors with control + left click
+          "<c-leftmouse>" = {
+            action = "require('multicursor-nvim').handleMouse";
+            lua = true;
+            desc = "MC: add/remove cursor (mouse)";
+          };
+          "<c-leftdrag>" = {
+            action = "require('multicursor-nvim').handleMouseDrag";
+            lua = true;
+            desc = "MC: drag cursor (mouse)";
+          };
+          "<c-leftrelease>" = {
+            action = "require('multicursor-nvim').handleMouseRelease";
+            lua = true;
+            desc = "MC: release cursor (mouse)";
+          };
+        } // mcKeys;
       };
     };
   };

@@ -44,6 +44,11 @@ let
             exec zellij attach "$name"
           fi
           cd "$dir"
+          if [ -f devenv.nix ] || [ -f devenv.yaml ]; then
+            # run zellij inside the devenv shell; when zellij exits
+            # (detach/quit), the shell exits with it
+            exec devenv shell -- zellij --session "$name" --new-session-with-layout ide
+          fi
           exec zellij --session "$name" --new-session-with-layout ide
           ;;
       esac
@@ -72,13 +77,20 @@ in
 
     layouts.ide = {
       layout._children = [
-        { pane.command = "nvim"; }
         {
-          floating_panes.pane = {
-            x = "10%";
-            y = "10%";
-            width = "80%";
-            height = "80%";
+          tab = {
+            _props.hide_floating_panes = true;
+            _children = [
+              { pane.command = "nvim"; }
+              {
+                floating_panes.pane = {
+                  x = "10%";
+                  y = "10%";
+                  width = "80%";
+                  height = "80%";
+                };
+              }
+            ];
           };
         }
       ];

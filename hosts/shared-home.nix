@@ -23,5 +23,6 @@
     ../modules/home/shared/thunderbird.nix
     ../modules/home/shared/gaming.nix
     ../modules/home/shared/zellij.nix
+    ../modules/home/shared/emacs.nix
   ];
 }
