@@ -59,6 +59,13 @@ in
         outer = 5;
       };
 
+      input = {
+        "*" = {
+          xkb_layout = "us";
+          xkb_variant = "intl";
+        };
+      };
+
       keybindings = {
         "${modifier}+Q" = "exec ${terminal}";
         "${modifier}+D" = "exec noctalia msg panel-toggle launcher";
