@@ -70,7 +70,7 @@ in
       keybinds.shared_except = {
         _args = [ "locked" ];
         _children = [
-          { bind = { _args = [ "Alt d" ]; Detach = { }; }; }
+          { bind = { _args = [ "Alt c" ]; Detach = { }; }; }
         ];
       };
     };

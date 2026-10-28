@@ -145,7 +145,7 @@ in
       output = {
         eDP-1 = {
           mode = "1920x1200@60Hz";
-          bg = "${./images/wallpapers/ghibli/5.png} fill";
+          bg = "${./images/wallpapers/ghibli/6.png} fill";
           adaptive_sync = "off";
         };
 
@@ -163,13 +163,13 @@ in
 
         "HEADLESS-1" = {
           mode = "2560x1440@144Hz";
-          bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
+          bg = "${./images/wallpapers/special/ranni.png} fill";
           pos = "0 1000000" ;
           disable = "";
         };
         "HEADLESS-2" = {
           mode = "2360x1640@60Hz";
-          bg = "${./images/wallpapers/special/moonlight-sunshine.png} fill";
+          bg = "${./images/wallpapers/special/ranni.png} fill";
           pos = "1000000 0";
           disable = "";
         };
