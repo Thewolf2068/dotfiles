@@ -25,4 +25,6 @@
         options = "--delete-older-than 30d";
       };
 
+    services.usbmuxd.enable = true; 
+
 }
