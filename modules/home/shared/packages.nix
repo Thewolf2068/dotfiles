@@ -38,6 +38,9 @@
     devenv
     nautilus
 
+    igir # Rom library manager
+    qbittorrent
+
     # Gaming
     supertuxkart
     mangohud
@@ -51,6 +54,7 @@
     sgdboop
     osu-lazer-bin
     steamtinkerlaunch
+
 
 
     # Kubernetes

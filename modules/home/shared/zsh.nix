@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.zsh = {
@@ -15,6 +15,7 @@
       "l" = "eza -lF --icons --color=always --group-directories-first";
       "vi" = "nvim";
       "cat" = "bat";
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/dotfiles";
     };
     initContent = ''
       fastfetch
