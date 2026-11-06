@@ -18,7 +18,6 @@
     btop
     cava
     localsend
-    opencode
     networkmanagerapplet
     pavucontrol
     wev
