@@ -28,11 +28,6 @@
       flake = false;
     };
 
-    waybar = {
-      url = "github:Alexays/Waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    swayfx-src = {
+      url = "github:wlrfx/swayfx";
+      flake = false;
+    };
+
     # Decky/Steam deck
     jovian = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
@@ -55,9 +55,8 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, waybar, spicetify-nix, nvf, nur, jovian, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, spicetify-nix, nvf, nur, jovian, ... }@inputs:
     let
-      # Shared overlay: kotofetch + waybar (built with mango workspaces + cava support)
       overlaysModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
           inputs.nur.overlays.default
@@ -65,14 +64,9 @@
             kotofetch = final.callPackage kotofetch-src { };
           })
           (final: prev: {
-            waybar = (prev.callPackage "${waybar}/nix/default.nix" {
-              waybar = prev.waybar;
-              version = waybar.shortRev or "dirty";
-            }).overrideAttrs (old: {
-              mesonFlags = (old.mesonFlags or []) ++ [
-                "-Dcava=enabled"
-                "-Dmango=true"
-              ];
+            swayfx-unwrapped = prev.swayfx-unwrapped.overrideAttrs (old: {
+              version = "git-${inputs.swayfx-src.shortRev or "dirty"}";
+              src = inputs.swayfx-src;
             });
           })
         ];

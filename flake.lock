@@ -34,22 +34,6 @@
         "url": "https://git.lix.systems/lix-project/flake-compat.git"
       }
     },
-    "flake-compat_2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767039857,
-        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -296,11 +280,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793992818,
-        "narHash": "sha256-elYcU63lYRnw100FBivQuF0BzT4KG4qcURlTksVfyCU=",
+        "lastModified": 1793993878,
+        "narHash": "sha256-vNvJAAuCEgQTy0/JdatDxvfD4JGJygmG4EAApKKnMRE=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "0e8d030e010c9dd7cf782d5be12a49d676f896a0",
+        "rev": "1bf71d71b67f1efa0b702322c5075d6400c25a94",
         "type": "github"
       },
       "original": {
@@ -342,7 +326,7 @@
         "nur": "nur",
         "nvf": "nvf",
         "spicetify-nix": "spicetify-nix",
-        "waybar": "waybar",
+        "swayfx-src": "swayfx-src",
         "zen-browser": "zen-browser"
       }
     },
@@ -364,6 +348,22 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
+        "type": "github"
+      }
+    },
+    "swayfx-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793449467,
+        "narHash": "sha256-ThYy/ZEKEM6M6E3WvEqRj7DeJUx/cobjXDmnNI57fM0=",
+        "owner": "wlrfx",
+        "repo": "swayfx",
+        "rev": "453e5c65098511796e16fcc4b5fae83b1e212110",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wlrfx",
+        "repo": "swayfx",
         "type": "github"
       }
     },
@@ -400,27 +400,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "waybar": {
-      "inputs": {
-        "flake-compat": "flake-compat_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793905441,
-        "narHash": "sha256-qxqnXm27fDAlXXGAVXg/0Se8U7fMkCEgpRpD1QTr01M=",
-        "owner": "Alexays",
-        "repo": "Waybar",
-        "rev": "f49ec82e2d296f033b081fd36d12297795b017dc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Alexays",
-        "repo": "Waybar",
         "type": "github"
       }
     },

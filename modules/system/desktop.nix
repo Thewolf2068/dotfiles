@@ -9,6 +9,8 @@
 
   programs.sway.enable = true;
 
+  programs.mango.enable = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [

@@ -15,6 +15,7 @@
     ../modules/home/shared/kitty.nix
     ../modules/home/shared/cursor.nix
     ../modules/home/shared/git.nix
+    ../modules/home/shared/mango.nix
     ../modules/home/shared/mangohud.nix
     ../modules/home/shared/discord.nix
     ../modules/home/shared/zen-browser.nix
