@@ -1,8 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 {
   home.username = "malenia";
   home.homeDirectory = "/home/malenia";
   home.stateVersion = "26.05"; # match your nixos-version
+
+
   imports = [
     ../modules/home/shared/packages.nix
     ../modules/home/shared/catppuccin.nix
@@ -25,5 +27,6 @@
     ../modules/home/shared/gaming.nix
     ../modules/home/shared/zellij.nix
     ../modules/home/shared/emacs.nix
+    ../modules/home/shared/umbriel.nix
   ];
 }

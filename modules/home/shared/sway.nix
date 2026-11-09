@@ -24,7 +24,6 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx-unwrapped; # Enable once they fix it
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
     checkConfig = false;
 

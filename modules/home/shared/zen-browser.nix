@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
 
+let
+  firefox-addons = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
@@ -32,7 +35,7 @@
       };
 
       extensions = {
-        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+        packages = with firefox-addons; [
           ublock-origin
           onepassword-password-manager
           imagus

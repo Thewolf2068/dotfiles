@@ -18,15 +18,16 @@
       };
     };
 
-    nur = {
-      url = "github:nix-community/nur";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kotofetch-src = {
-      url = "github:hxpe-dev/kotofetch";
-      flake = false;
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -42,10 +43,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    swayfx-src = {
-      url = "github:wlrfx/swayfx";
-      flake = false;
-    };
 
     # Decky/Steam deck
     jovian = {
@@ -55,31 +52,14 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, kotofetch-src, spicetify-nix, nvf, nur, jovian, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, catppuccin, zen-browser, spicetify-nix, nvf, nur, jovian, ... }@inputs:
     let
-      overlaysModule = { config, pkgs, ... }: {
-        nixpkgs.overlays = [
-          inputs.nur.overlays.default
-          (final: prev: {
-            kotofetch = final.callPackage kotofetch-src { };
-          })
-          (final: prev: {
-            swayfx-unwrapped = prev.swayfx-unwrapped.overrideAttrs (old: {
-              version = "git-${inputs.swayfx-src.shortRev or "dirty"}";
-              src = inputs.swayfx-src;
-            });
-          })
-        ];
-      };
-
-      # Builds one host's nixosSystem given its hostname (used for both the
       # configuration.nix and home.nix paths under ./hosts/<hostname>/)
       mkHost = hostname:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            overlaysModule
             ./hosts/${hostname}/configuration.nix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager

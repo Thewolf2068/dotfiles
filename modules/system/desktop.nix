@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [ inputs.umbriel.nixosModules.default ];
+
   environment.pathsToLink = [ "/libexec" ];
   services.xserver.enable = true;
 
@@ -8,8 +10,9 @@
   security.polkit.enable = true;
 
   programs.sway.enable = true;
+  programs.umbriel.enable = true;
 
-  programs.mango.enable = true;
+
 
   xdg.portal = {
     enable = true;
